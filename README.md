@@ -2,7 +2,7 @@
 
 ### Table of content 
 * [Description](#description)
-* [Prerequisites](#prerequisite)
+* [Prerequisites](#prerequisites)
 * [Getting Started](#getting-started)
 
 
@@ -17,3 +17,18 @@ Tasks:
  * Export filtered data as **CSV** file 
 
 
+## Prerequisites
+* you need to have nodejs and npm .
+* This API make use of **twit** npm package.
+
+   **twit** is Twitter API Client for node. Supports both the REST and Streaming API.
+   ```javascript
+   npm i twit --save
+   ```
+   --save install package into local node_module directory.
+
+* Package.json include *mongoose, moment, mongo-query-date, express, path, json2csv*
+  for installing package(s):
+    ```javascript
+   npm i <package_name> --save
+   ```
