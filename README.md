@@ -78,7 +78,9 @@ For installing package(s):
  ```javascript
     app.get("/", (req, res) => {
   res.redirect(
-    "/getMethods?api_1=localhost:3000/twitter_search&api_2=localhost:3000/filter_tweets"
+    "/getMethods?
+    api_1=localhost:3000/twitter_search &
+    api_2=localhost:3000/filter_tweets"
   );
 });
  ```
