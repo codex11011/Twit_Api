@@ -33,8 +33,9 @@ Tasks:
 ### Prerequisites
   * you need to have nodejs and npm installed on your system . ([get_node](https://nodejs.org/en/download/))
   * This API make use of **twit** npm package.
-
-     **twit** is Twitter API Client for node. Supports both the REST and Streaming API.  
+  ```
+      **twit** is Twitter API Client for node. Supports both the REST and Streaming API.  
+  ```
   * Package.json include
     + mongoose
     + moment
