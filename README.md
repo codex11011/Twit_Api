@@ -25,13 +25,26 @@ Tasks:
 * This API make use of **twit** npm package.
 
    **twit** is Twitter API Client for node. Supports both the REST and Streaming API.
+   Installation -
    ```javascript
    npm i twit --save
    ```
    > --save install package into local node_module directory.
-
-* Package.json include *mongoose, moment, mongo-query-date, express, path, json2csv*
-  for installing package(s):
-    ```javascript
+* Package.json include
+  + mongoose
+  + moment
+  + mongo-query-date
+  + express
+  + path
+  + json2csv
+  
+     
+     For installing package(s):
+   ```javascript
    npm i <package_name> --save
    ```
+   
+   
+## Getting Started
+
+   
