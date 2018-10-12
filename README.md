@@ -5,7 +5,7 @@
 2. [Getting Started](#getting-started)
    * [Prerequisites](#prerequisites)
    * [Installation](#installation-setting-up-project)
-
+3. []
 
 
 
@@ -55,12 +55,18 @@ For installing package(s):
  ### Installation (setting up project)
   * Download the zip file and extract it.
   * Cd to the project folder 'Twit_API-master'.
-  * make sure you have **mongoDB** installed in your local machine ([get mongoDB](https://docs.mongodb.com/manual/installation/))and mongodb server running([mongod](https://docs.mongodb.com/manual/tutorial/manage-mongodb-processes/)).
   
- From command line run:  
+ To run server file(Terminal 2):
   ```javascript
-   node main.js
+   run > node main.js
    ```
+  * make sure you have **mongoDB** installed in your local machine ([get mongoDB](https://docs.mongodb.com/manual/installation/))and mongodb server running([mongod](https://docs.mongodb.com/manual/tutorial/manage-mongodb-processes/)) at port 27017(default).
+  
+ To run mongodb server(Terminal 1):
+  ```javascript
+   run > mongod
+   ``` 
+   
       
 
    
