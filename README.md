@@ -8,7 +8,7 @@
 
 
 
-1.  ## Description
+1. ## Description
 ****
 This API uses **Twitter Search/Streaming API** to fetch and store the target tweets with metadata
 (eg: user details, tweet time, favorites and retweet counts etc ) for a recent high traffic event
@@ -20,7 +20,9 @@ Tasks:
  * Retrieve data from database on the basis of filters applied.
  * Export filtered data as **CSV** file 
 
-2.  ## Getting Started
+
+
+2. ## Getting Started
 ****
 ### Prerequisites
   * you need to have nodejs and npm .
