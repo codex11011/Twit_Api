@@ -1,12 +1,14 @@
 # Twitter Filter Search
 
 ### Table of content 
-* [Description](#description)
-* [Prerequisites](#prerequisites)
-* [Getting Started](#getting-started)
+1. [Description](#description)
+2. [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
 
 
-## Description
+
+
+1.  ## Description
 ****
 This API uses **Twitter Search/Streaming API** to fetch and store the target tweets with metadata
 (eg: user details, tweet time, favorites and retweet counts etc ) for a recent high traffic event
@@ -18,33 +20,34 @@ Tasks:
  * Retrieve data from database on the basis of filters applied.
  * Export filtered data as **CSV** file 
 
-
-## Prerequisites
+2.  ## Getting Started
 ****
-* you need to have nodejs and npm .
-* This API make use of **twit** npm package.
+### Prerequisites
+  * you need to have nodejs and npm .
+  * This API make use of **twit** npm package.
 
-   **twit** is Twitter API Client for node. Supports both the REST and Streaming API.
-   Installation -
-   ```javascript
-   npm i twit --save
-   ```
-   > --save install package into local node_module directory.
-* Package.json include
-  + mongoose
-  + moment
-  + mongo-query-date
-  + express
-  + path
-  + json2csv
+     **twit** is Twitter API Client for node. Supports both the REST and Streaming API.
+     Installation -
+     ```javascript
+     npm i twit --save
+     ```
+     > --save install package into local node_module directory.
+  * Package.json include
+    + mongoose
+    + moment
+    + mongo-query-date
+    + express
+    + path
+    + json2csv
   
      
      For installing package(s):
    ```javascript
    npm i <package_name> --save
    ```
-   
-   
-## Getting Started
+
+ ### Installation (setup)
+  Download the zip file and extract it.
+  cd to the project folder 'Twit_API-master'.
 
    
