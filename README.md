@@ -5,7 +5,9 @@
 2. [Getting Started](#getting-started)
    * [Prerequisites](#prerequisites)
    * [Installation](#installation-setting-up-project)
-3. []
+3. [End Points](#end-points)
+   * [Twitter-Search](#twitter-search)
+   * [Twitter-Filter](#twitter-filter)
 
 
 
@@ -67,6 +69,8 @@ For installing package(s):
    run > mongod
    ``` 
    
+3. ## End Points
       
+###Twitter-Search      
 
    
