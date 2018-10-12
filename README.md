@@ -28,17 +28,13 @@ Tasks:
 
 
 2. ## Getting Started
+> Following instructions will get you a copy of the project up and running on your local machine
 ****
 ### Prerequisites
   * you need to have nodejs and npm installed on your system . ([get_node](https://nodejs.org/en/download/))
   * This API make use of **twit** npm package.
 
-     **twit** is Twitter API Client for node. Supports both the REST and Streaming API.
-     Installation -
-     ```javascript
-     npm i twit --save
-     ```
-     > --save install package into local node_module directory.
+     **twit** is Twitter API Client for node. Supports both the REST and Streaming API.  
   * Package.json include
     + mongoose
     + moment
@@ -52,8 +48,10 @@ For installing package(s):
    ```javascript
    npm i <package_name> --save
    ```
+> --save install package into local node_module directory.
 
- ### Installation (setup)
+
+ ### Installation (setting up project)
   Download the zip file and extract it.
   cd to the project folder 'Twit_API-master'.
 
