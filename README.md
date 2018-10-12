@@ -1,3 +1,5 @@
+<link href="https://github.com/shubham-tin/Twit_Api/blob/master/custom_css/sunburst.css" rel="stylesheet"></link>
+
 # Twitter Filter Search
 
 ### Table of content 
@@ -74,13 +76,11 @@ For installing package(s):
  ****
  ### main_file
  > consist of a get method which list operations to get Twitter_search and Filter_Tweets api. 
- (setq markdown-css-paths '("http://mydomain.com/style.css"))
- ```javascript
+
+ ```css  
     app.get("/", (req, res) => {
   res.redirect(
-    "/getMethods?
-    api_1=localhost:3000/twitter_search &
-    api_2=localhost:3000/filter_tweets"
+    "/getMethods?api_1=localhost:3000/twitter_search&api_2=localhost:3000/filter_tweets"
   );
 });
  ```
