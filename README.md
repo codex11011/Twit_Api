@@ -59,14 +59,15 @@ For installing package(s):
  ### Installation (setting up project)
   * Download the zip file and extract it.
   * Cd to the project folder 'Twit_API-master'.
+  * make sure you have **mongoDB** installed in your local machine ([get mongoDB](https://docs.mongodb.com/manual/installation/))and mongodb server running([mongod](https://docs.mongodb.com/manual/tutorial/manage-mongodb-processes/)) at port 27017(default).
   
- To run server file(Terminal 2):
+    
+ To run server file(Terminal 1):
   ```javascript
    run > node main.js
    ```
-  * make sure you have **mongoDB** installed in your local machine ([get mongoDB](https://docs.mongodb.com/manual/installation/))and mongodb server running([mongod](https://docs.mongodb.com/manual/tutorial/manage-mongodb-processes/)) at port 27017(default).
   
- To run mongodb server(Terminal 1):
+ To run mongodb server(Terminal 2):
   ```javascript
    run > mongod
    ``` 
@@ -75,10 +76,20 @@ For installing package(s):
  > list of all endpoints provided by this api.
  ****
  ### main_file
- > consist of a get method which list operations to get Twitter_search and Filter_Tweets api. 
+ consist of a 'get()' method which list operations to get Twitter_search and Filter_Tweets api. 
+ 
+ renders the main page:-
+ > url : **localhost:3000/**
+ 
+ renders Twitter_search page:-
+ > url : **localhost:3000/twitter_search**
+ 
+ renders Filter_Tweets page:-
+ > url : **local:3000/filter_tweets**
 
+ > NOTE: `localhost:3000 equals 127.0.0.1:3000` is just where our main.js server is running. 
 
-<strong>shubham</strong>
+<strong style="color:green;">shubham</strong>
 
  ### Twitter-Search
  
