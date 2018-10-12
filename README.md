@@ -77,18 +77,9 @@ For installing package(s):
  ### main_file
  > consist of a get method which list operations to get Twitter_search and Filter_Tweets api. 
 
-<h2>
 
-```diff
-- red
-+ green
-! orange
-# gray
-```
+<strong>shubham</strong>
 
-</h2>
-<span style=“color:red;”> text </span>
- 
  ### Twitter-Search
  
  
