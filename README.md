@@ -70,7 +70,21 @@ For installing package(s):
    ``` 
    
 3. ## End Points
-      
- ### Twitter-Search      
+ > list of all endpoints provided by this api.
+ ****
+ ### main_file
+ > consist of a get method which list operations to get Twitter_search and Filter_Tweets api. 
+ (setq markdown-css-paths '("http://mydomain.com/style.css"))
+ ```javascript
+    app.get("/", (req, res) => {
+  res.redirect(
+    "/getMethods?api_1=localhost:3000/twitter_search&api_2=localhost:3000/filter_tweets"
+  );
+});
+ ```
+ 
+ ### Twitter-Search
+ 
+ 
 
    
