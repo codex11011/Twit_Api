@@ -4,7 +4,7 @@
 1. [Description](#description)
 2. [Getting Started](#getting-started)
    * [Prerequisites](#prerequisites)
-   * [Installation](#installation)
+   * [Installation](#installation-setting-up-project)
 
 
 
@@ -34,7 +34,7 @@ Tasks:
   * you need to have nodejs and npm installed on your system . ([get_node](https://nodejs.org/en/download/))
   * This API make use of **twit** npm package.
   ```
-      **twit** is Twitter API Client for node. Supports both the REST and Streaming API.  
+      'twit' is Twitter API Client for node. Supports both the REST and Streaming API.  
   ```
   * Package.json include
     + mongoose
@@ -53,7 +53,14 @@ For installing package(s):
 
 
  ### Installation (setting up project)
-  Download the zip file and extract it.
-  cd to the project folder 'Twit_API-master'.
+  * Download the zip file and extract it.
+  * Cd to the project folder 'Twit_API-master'.
+  * make sure you have **mongoDB** in your local machine
+  
+ from command line run:  
+  ```javascript
+   node main.js
+   ```
+      
 
    
