@@ -25,7 +25,7 @@ Tasks:
 2. ## Getting Started
 ****
 ### Prerequisites
-  * you need to have nodejs and npm .
+  * you need to have nodejs and npm installed on your system . ([get_node](https://nodejs.org/en/download/))
   * This API make use of **twit** npm package.
 
      **twit** is Twitter API Client for node. Supports both the REST and Streaming API.
@@ -43,7 +43,7 @@ Tasks:
     + json2csv
   
      
-     For installing package(s):
+For installing package(s):
    ```javascript
    npm i <package_name> --save
    ```
