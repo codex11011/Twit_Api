@@ -170,9 +170,8 @@ To apply pagination just add the above fields to the query
 > query-format :- **?sname=value**  
 > example => localhost:3000/filter_tweets/search/tweet_text/sw?sname=Jack
 
- #### `<Params>` 
- 
- 
+ #### `<Params>`  
+   
 |   params             |     represents         | 
 | -------------------- |:----------------------:| 
 |    **ex**            |   **equal to**         | 
@@ -185,8 +184,7 @@ To apply pagination just add the above fields to the query
 > query-format :- **?name=value**  
 > example => localhost:3000/filter_tweets/search/tweet_text/sw?name=Jack
   
- #### `<Params>` 
- 
+ #### `<Params>`  
  
 |   params             |     represents         | 
 | -------------------- |:----------------------:| 
@@ -201,8 +199,7 @@ To apply pagination just add the above fields to the query
 > example => localhost:3000/filter_tweets/search/tweet_text/sw?text=Jack
 
 
- #### `<params>` 
- 
+ #### `<params>`  
  
 |   params             |     represents         | 
 | -------------------- |:----------------------:| 
@@ -224,8 +221,7 @@ user_mentions entity contain username and screen-name of other user's mentioned 
 > query-format :- **?sname=screen_name**  
 > example => localhost:3000/filter_tweets/search/user_mentions/screen_name/sw?name=Ja
   
- #### `<Params>` 
- 
+ #### `<Params>`  
  
 |   params             |     represents         | 
 | -------------------- |:----------------------:| 
@@ -242,9 +238,8 @@ user_mentions entity contain username and screen-name of other user's mentioned 
 > query-format :- **?name=username**  
 > example => localhost:3000/filter_tweets/search/user_mentions/username/sw?name=Ja
   
- #### `<Params>` 
-
-
+ #### `<Params>`  
+ 
 |   params             |     represents         | 
 | -------------------- |:----------------------:| 
 |    **ex**            |   **equal to**         | 
@@ -260,13 +255,12 @@ user_mentions entity contain username and screen-name of other user's mentioned 
 
 
 ##### By Date
-> endpoint :- **localhost:3000/filter_tweets/sort_tweet/by_date?order=<value>**  
-> query-format :- **?text=value**  
+> endpoint :- **localhost:3000/filter_tweets/sort_tweet/by_date?order=`<value>`**  
+> query-format :- **?order=`<value>`**  
 > example => localhost:3000/filter_tweets/sort_tweet/by_date?order=asc
 
- #### `<value>` 
-
-
+ #### `<value>`  
+ 
 |         value             |        represents           | 
 | ------------------------- |:---------------------------:| 
 |    **asc**                |    **ascending order**      | 
@@ -274,31 +268,31 @@ user_mentions entity contain username and screen-name of other user's mentioned 
 
 
 ##### By Retweet Count
-> endpoint :- **localhost:3000/filter_tweets/sort_tweet/by_rt_count?order=<value>**  
-> query-format :- **?text=value**  
+> endpoint :- **localhost:3000/filter_tweets/sort_tweet/by_rt_count?order=`<value>`**  
+> query-format :- **?order=value**  
 > example => localhost:3000/filter_tweets/sort_tweet/by_rt_count?order=asc
 
- #### `<value>` 
-
-
+ #### `<value>`  
+ 
 |         value             |        represents           | 
 | ------------------------- |:---------------------------:| 
 |    **asc**                |    **ascending order**      | 
 |    **desc**               |    **descending order**     |
 
+****
 
 
 #### Range Filters
 
 ```These filters are governed by range parameters```  
 
-> endpoint :- **localhost:3000/filter_tweets/r_filter/<params_1>/<params_2>?<query>**
+> endpoint :- **localhost:3000/filter_tweets/r_filter/`<params_1>`/`<params2>`?`<query>`**
 
 
 
 ##### Retweet Count
 
-> endpoint :-  **localhost:3000/filter_tweets/r_filter/rt_count/<params>?<query>**
+> endpoint :-  **localhost:3000/filter_tweets/r_filter/rt_count/`<params>`?`<query>`**
  
 
 |         params           |        represents                 |      query fields         |     Interval          |
@@ -326,7 +320,7 @@ user_mentions entity contain username and screen-name of other user's mentioned 
 
 ##### Followers Count
 
-> endpoint :-  **localhost:3000/filter_tweets/r_filter/fl_count/<params>?<query>**
+> endpoint :-  **localhost:3000/filter_tweets/r_filter/fl_count/`<params>`?`<query>`**
  
 
 |         params           |        represents                 |      query fields         |     Interval          |
@@ -349,7 +343,7 @@ user_mentions entity contain username and screen-name of other user's mentioned 
 
 ##### Favourites Count
 
-> endpoint :-  **localhost:3000/filter_tweets/r_filter/fv_count/<params>?<query>**
+> endpoint :-  **localhost:3000/filter_tweets/r_filter/fv_count/`<params>`?`<query>`**
  
 
 |         params           |        represents                 |      query fields         |     Interval          |
