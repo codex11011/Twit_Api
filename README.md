@@ -15,8 +15,11 @@
         * [By Screen-Name](#by-screen-name)
         * [By User-Name](#by-user-name)
         * [By Tweet Text](#by-tweet-text)
+     3. [Sort Tweet](#sort-tweet)
+        * [By Date](#by-date)
+        * [By Retweet Count](#by-retweet-count)
         
-     3. [Sort](#sort)
+     4. []
 
 
 
@@ -131,22 +134,26 @@ that is already stored in the database.
 ##### Pagination
 All the filters that are going to be applied have an optional query field  
 
-> query-fields => **?page=value1&limit=value2**  
+> query-format => **?page=value1&limit=value2**  
 **page** represents the number of page we are on.  
 **limit** represents the number of results displayed per-page.
 
 To apply pagination just add the above fields to the query
 > example => localhost:3000/filter_tweets/all_tweets?page=0&limit=2 
 
+> **use '&' to seperate all request query fields**
+
+
 ### Filters -
 
 #### Search
-> endpoint :- localhost:3000/filter_tweets/search
+> endpoint :- **localhost:3000/filter_tweets/search**
 
 ##### By Screen-Name
 
-> endpoint :- **localhost:3000/filter_tweets/search/tweet_screen_name/`<params>`?sname=user_screen_name**
-> query-format :- ?sname=value
+> endpoint :- **localhost:3000/filter_tweets/search/tweet_screen_name/`<params>`?sname=user_screen_name**  
+> query-format :- **?sname=value**  
+> example => localhost:3000/filter_tweets/search/tweet_text/sw?sname=Jack
 
  #### `<Params>` 
  
@@ -159,8 +166,9 @@ To apply pagination just add the above fields to the query
 
 
 ##### By User-Name
-> endpoint :- **localhost:3000/filter_tweets/search/tweet_username/`<params>`?name=user_name**
-> query-format :- ?name=value
+> endpoint :- **localhost:3000/filter_tweets/search/tweet_username/`<params>`?name=user_name**  
+> query-format :- **?name=value**  
+> example => localhost:3000/filter_tweets/search/tweet_text/sw?name=Jack
   
  #### `<Params>` 
  
@@ -171,6 +179,60 @@ To apply pagination just add the above fields to the query
 |    **sw**            |   **starts with**      |
 |    **ew**            |   **ends with**        |
   
+
+##### By Tweet Text
+> endpoint :- **localhost:3000/filter_tweets/search/tweet_text/`<params>`?text=value**  
+> query-format :- **?text=value**  
+> example => localhost:3000/filter_tweets/search/tweet_text/sw?text=Jack
+
+
+
+ #### `<params>` 
+ 
+|   params             |     represents         | 
+| -------------------- |:----------------------:| 
+|    **ex**            |   **equal to**         | 
+|    **sw**            |   **starts with**      |
+|    **ew**            |   **ends with**        |
+|    **co**            |   **contains**         |
+
+
+#### Sort Tweet
+> endpoint :- **localhost:3000/filter_tweets/sort_tweet**
+
+
+##### By Date
+> endpoint :- **localhost:3000/filter_tweets/sort_tweet/by_date?order=<value>**  
+> query-format :- **?text=value**  
+> example => localhost:3000/filter_tweets/sort_tweet/by_date?order=asc
+
+
+
+ #### `<value>` 
+  
+|         value             |        represents           | 
+| ------------------------- |:---------------------------:| 
+|    **asc**                |    **ascending order**      | 
+|    **desc**               |    **descending order**     |
+
+
+##### By Retweet Count
+> endpoint :- **localhost:3000/filter_tweets/sort_tweet/by_rt_count?order=<value>**  
+> query-format :- **?text=value**  
+> example => localhost:3000/filter_tweets/sort_tweet/by_rt_count?order=asc
+
+
+
+ #### `<value>` 
+  
+|         value             |        represents           | 
+| ------------------------- |:---------------------------:| 
+|    **asc**                |    **ascending order**      | 
+|    **desc**               |    **descending order**     |
+
+
+  
+
 
   
   
