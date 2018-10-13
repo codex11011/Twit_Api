@@ -136,14 +136,17 @@ After this data is stored in database , we will get "data stored to database" re
  
 #### Twitter-Filter query and endpoints  
 
-```This section consist of a list of filters that can be applied to the data  
-that is already stored in the database. 
+```
+  This section consist of a list of filters that can be applied to the data  
+  that is already stored in the database. 
 ```
 ----
 
 ##### Pagination  
 
-```All the filters that are going to be applied have an optional query field  ```
+```
+  All the filters that are going to be applied have an optional query field  
+```
 
 > query-format => **?page=value1&limit=value2**  
 **page** represents the number of page we are on.  
@@ -231,10 +234,14 @@ that is already stored in the database.
 
 ### By User Mentions  
 
-```user_mentions entity contain username and screen-name of other user's mentioned in the tweet.```  
+```
+  user_mentions entity contain username and screen-name of other user's mentioned in the tweet.
+```  
   
  ##### ScreenName  
- ```filter by sreen-name of mentioned user's```  
+ ```
+  filter by sreen-name of mentioned user's
+ ```  
  
 > **endpoint :- localhost:3000/filter_tweets/search/user_mentions/screen_name/`<params>`?sname=screen_name**  
 
@@ -253,7 +260,9 @@ that is already stored in the database.
 
  ##### UserName  
 
-``` filter by user-name of mentioned user's```  
+``` 
+  filter by user-name of mentioned user's
+  ```  
 
 > **endpoint :- localhost:3000/filter_tweets/search/user_mentions/username/`<params>`?name=username**  
 
@@ -312,7 +321,9 @@ that is already stored in the database.
 
 #### Range Filters
 
-```These filters are governed by range parameters```  
+```
+  These filters are governed by range parameters
+```  
 
 > **endpoint :- localhost:3000/filter_tweets/r_filter/`<params_1>`/`<params2>`?`<query>`**  
 
@@ -438,7 +449,8 @@ that is already stored in the database.
 |---------------------------|---------------------:|
 |      **date1,date2**      |      YYYY-MM-DD      |  
 
-``` Their is no order attach with the dates ie., date1 > date2 or date2 > date1  
+```
+  Their is no order attach with the dates ie., date1 > date2 or date2 > date1  
 ```   
 > **date range example** =>     localhost:3000/filter_tweets/r_filter/date_range?date1=2018-10-09&date2=2018-11-09  
 
@@ -448,7 +460,8 @@ that is already stored in the database.
 
 > just like pagination, this api has provided an optional query-field to save filtered result as csv file.
 
-``` If you want to store any filtered result as a CSV file, just add 'save=1' to the query-fields.  
+``` 
+    If you want to store any filtered result as a CSV file, just add 'save=1' to the query-fields.  
     If not mentioned the default value for this field is taken as 0.
 ```
 
