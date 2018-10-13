@@ -345,6 +345,12 @@ After this data is stored in database , we will get "data stored to database" re
 
 > **example  =>  localhost:3000/filter_tweets/sort_tweet/by_date?order=asc**  
 
+```
+If we don't set the value of order field in the query then  
+the default value will be considered. ie., 'asc'
+
+```
+
  #### `<value>`  
  
 |         value             |        represents           | 
@@ -359,7 +365,13 @@ After this data is stored in database , we will get "data stored to database" re
 
 > **query-format :- ?order=value**  
 
-> **example** => localhost:3000/filter_tweets/sort_tweet/by_rt_count?order=asc  
+> **example => localhost:3000/filter_tweets/sort_tweet/by_rt_count?order=asc**  
+
+```
+If we don't set the value of order field in the query then  
+the default value will be considered. ie., 'asc'
+
+```
 
  #### `<value>`  
  
