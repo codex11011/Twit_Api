@@ -146,6 +146,12 @@ All the filters that are going to be applied have an optional query field
 **page** represents the number of page we are on.  
 **limit** represents the number of results displayed per-page.
 
+``` 
+    If no value of page and limit field are added or if page and limit query fields are not used,  
+    then, default value of page and limit will be considered.  
+    page = 0 (default)  
+    limit = 10 (default)
+```
 To apply pagination just add the above fields to the query
 > example => localhost:3000/filter_tweets/all_tweets?page=0&limit=2 
 
@@ -153,6 +159,7 @@ To apply pagination just add the above fields to the query
 
 
 ### Filters -
+****
 
 #### Search
 > endpoint :- **localhost:3000/filter_tweets/search**
@@ -194,8 +201,8 @@ To apply pagination just add the above fields to the query
 > example => localhost:3000/filter_tweets/search/tweet_text/sw?text=Jack
 
 
-
  #### `<params>` 
+ 
  
 |   params             |     represents         | 
 | -------------------- |:----------------------:| 
@@ -203,6 +210,46 @@ To apply pagination just add the above fields to the query
 |    **sw**            |   **starts with**      |
 |    **ew**            |   **ends with**        |
 |    **co**            |   **contains**         |
+
+****
+
+
+
+### By User Mentions  
+user_mentions entity contain username and screen-name of other user's mentioned in the tweet.  
+  
+ ##### ScreenName  
+ filter by sreen-name of mentioned user's
+> endpoint :- **localhost:3000/filter_tweets/search/user_mentions/screen_name/`<params>`?sname=screen_name**  
+> query-format :- **?sname=screen_name**  
+> example => localhost:3000/filter_tweets/search/user_mentions/screen_name/sw?name=Ja
+  
+ #### `<Params>` 
+ 
+ 
+|   params             |     represents         | 
+| -------------------- |:----------------------:| 
+|    **ex**            |   **equal to**         | 
+|    **sw**            |   **starts with**      |
+|    **ew**            |   **ends with**        |
+
+
+ ##### UserName  
+ filter by user-name of mentioned user's
+> endpoint :- **localhost:3000/filter_tweets/search/user_mentions/username/`<params>`?name=username**  
+> query-format :- **?name=username**  
+> example => localhost:3000/filter_tweets/search/user_mentions/username/sw?name=Ja
+  
+ #### `<Params>` 
+
+
+|   params             |     represents         | 
+| -------------------- |:----------------------:| 
+|    **ex**            |   **equal to**         | 
+|    **sw**            |   **starts with**      |
+|    **ew**            |   **ends with**        |
+
+****  
 
 
 
@@ -215,10 +262,9 @@ To apply pagination just add the above fields to the query
 > query-format :- **?text=value**  
 > example => localhost:3000/filter_tweets/sort_tweet/by_date?order=asc
 
-
-
  #### `<value>` 
-  
+
+
 |         value             |        represents           | 
 | ------------------------- |:---------------------------:| 
 |    **asc**                |    **ascending order**      | 
@@ -230,10 +276,9 @@ To apply pagination just add the above fields to the query
 > query-format :- **?text=value**  
 > example => localhost:3000/filter_tweets/sort_tweet/by_rt_count?order=asc
 
-
-
  #### `<value>` 
-  
+
+
 |         value             |        represents           | 
 | ------------------------- |:---------------------------:| 
 |    **asc**                |    **ascending order**      | 
