@@ -18,6 +18,7 @@
         * [By User Mentions](#by-user-mentions)
            1. [ScreenName](#screenname)
            2. [UserName](#username)
+        * [By Language](#by-language)   
            
      3. [Sort Tweet](#sort-tweet)
         * [By Date](#by-date)
@@ -280,7 +281,57 @@ After this data is stored in database , we will get "data stored to database" re
 |    **sw**            |   **starts with**      |
 |    **ew**            |   **ends with**        |
 
-****  
+
+
+### By Language
+```
+  There are a limited number of languages supported by Twitter search api.  
+  This endpoint search by the language of the tweeted text. 
+````  
+
+> **endpoints :-  localhost:3000/filter_tweets/search/lang?lang=`<language_code>`**  
+```
+  query-format :- ?lang=<language_code> 
+```
+
+|         Name              |        	Language code      |
+|---------------------------|---------------------------:|
+| English(default )         |           	en             |
+| Arabic 	                  |             ar             |
+| Bengali 	                |             bn             |
+| Czech 	                  |             cs             |   
+| Danish 	                  |             da             |
+| German 	                  |             de             |
+| Greek 	                  |             el             |
+| Spanish 	                |             es             |
+| Persian 	                |             fa             |
+| Finnish 	                |             fi             |
+| Filipino 	                |             fil            |
+| French 	                  |             fr             |
+| Hebrew 	                  |             he             |
+| Hindi 	                  |             hi             |
+| Hungarian 	              |             hu             |
+| Indonesian 	              |             id             |
+| Italian 	                |             it             |
+| Japanese 	                |             ja             |
+| Korean 	                  |             ko             |
+| Malay                     |           	msa            |
+| Dutch 	                  |             nl             |
+| Norwegian 	              |             no             |
+| Polish 	                  |             pl             |
+| Portuguese                |           	pt             | 
+| Romanian 	                |             ro             |
+| Russian 	                |             ru             |
+| Swedish                   |           	sv             |
+| Thai 	                    |             th             |
+| Turkish                   |           	tr             |
+| Ukrainian 	              |             uk             |
+| Urdu 	                    |             ur             |
+| Vietnamese 	              |             vi             |
+| Chinese(Simplified)       |             zh - cn        |
+| Chinese(Traditional) 	    |             zh - tw        |
+
+
 
 
 
