@@ -135,13 +135,15 @@ After this data is stored in database , we will get "data stored to database" re
  
  
 #### Twitter-Filter query and endpoints  
-This section consist of a list of filters that can be applied to the data  
-that is already stored in the database. 
 
+```This section consist of a list of filters that can be applied to the data  
+that is already stored in the database. 
+```
 ----
 
-##### Pagination
-All the filters that are going to be applied have an optional query field  
+##### Pagination  
+
+```All the filters that are going to be applied have an optional query field  ```
 
 > query-format => **?page=value1&limit=value2**  
 **page** represents the number of page we are on.  
@@ -152,9 +154,9 @@ All the filters that are going to be applied have an optional query field
     then, default value of page and limit will be considered.  
     page = 0 (default)  
     limit = 10 (default)
-```
-To apply pagination just add the above fields to the query
-> example => localhost:3000/filter_tweets/all_tweets?page=0&limit=2 
+```  
+> To apply pagination just add the above fields to the query
+> example => localhost:3000/filter_tweets/get_all/tweets?page=0&limit=2 
 
 > **use '&' to seperate all request query fields**
 
