@@ -10,6 +10,13 @@
    * [Server file](#server-file)
    * [Twitter-Search](#twitter-search)
    * [Twitter-Filter](#twitter-filter)
+     1. [Pagination](#pagination)
+     2. [Search](#search)
+        * [By Screen-Name](#by-screen-name)
+        * [By User-Name](#by-user-name)
+        * [By Tweet Text](#by-tweet-text)
+        
+     3. [Sort](#sort)
 
 
 
@@ -96,7 +103,7 @@ For installing package(s):
 
  ### Twitter-Search
  
- To render twitter-search response page use:- 
+ To render Twitter-Search response page use:- 
 > url : **localhost:3000/twitter_search** 
 
 To **get data** from twitter-search api use:-  
@@ -105,7 +112,71 @@ To **get data** from twitter-search api use:-
 where 'q' is the 'Keyword'  
 'date' value represents since which date you want your data  
 'count' is number of results you want to store
+After this data is stored in database , we will get "data stored to database" response.
 ```
-> query format example: - localhost:3000/twitter_search/get_data?q=Elonmusk&date=2018-10-09&count=10  
+> example => localhost:3000/twitter_search/get_data?q=Elonmusk&date=2018-10-09&count=10  
 
-   
+ ### Twitter-Filter
+
+ To render Twitter-Filter response page use:-
+ > url : **localhost:3000/filter_tweets** 
+ 
+ 
+#### Twitter-Filter query and endpoints  
+This section consist of a list of filters that can be applied to the data  
+that is already stored in the database. 
+
+----
+
+##### Pagination
+All the filters that are going to be applied have an optional query field  
+
+> query-fields => **?page=value1&limit=value2**  
+**page** represents the number of page we are on.  
+**limit** represents the number of results displayed per-page.
+
+To apply pagination just add the above fields to the query
+> example => localhost:3000/filter_tweets/all_tweets?page=0&limit=2 
+
+### Filters -
+
+#### Search
+> endpoint :- localhost:3000/filter_tweets/search
+
+##### By Screen-Name
+
+> endpoint :- **localhost:3000/filter_tweets/search/tweet_screen_name/`<params>`?sname=user_screen_name**
+> query-format :- ?sname=value
+
+ #### `<Params>` 
+ 
+ 
+|   params             |     represents         | 
+| -------------------- |:----------------------:| 
+|    **ex**            |   **equal to**         | 
+|    **sw**            |   **starts with**      |
+|    **ew**            |   **ends with**        |
+
+
+##### By User-Name
+> endpoint :- **localhost:3000/filter_tweets/search/tweet_username/`<params>`?name=user_name**
+> query-format :- ?name=value
+  
+ #### `<Params>` 
+ 
+ 
+|   params             |     represents         | 
+| -------------------- |:----------------------:| 
+|    **ex**            |   **equal to**         | 
+|    **sw**            |   **starts with**      |
+|    **ew**            |   **ends with**        |
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
