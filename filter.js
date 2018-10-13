@@ -199,6 +199,12 @@ router.get("/search/tweet_text/ew", (req, res) => {
 
 //Sorting
 
+
+router.get("/sort_tweet", (req, res) => {
+  res.send("welcome to twitter sort_tweet-filter");
+});
+
+
 // query-format -> api_2/sort_tweet/by_date?order=asc&page=0&limit=2
 //order can take asc or desc
 router.get("/sort_tweet/by_date", (req, res) => {
