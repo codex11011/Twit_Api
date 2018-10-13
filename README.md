@@ -458,15 +458,6 @@ After this data is stored in database , we will get "data stored to database" re
 
 
 
-### Save as CSV  
-
-> just like pagination, this api has provided an optional query-field to save filtered result as csv file.
-
-``` 
-    If you want to store any filtered result as a CSV file, just add 'save=1' to the query-fields.  
-    If not mentioned the default value for this field is taken as 0.
-```
-
 ### Get all Data
   
   > endpoints :-  localhost:3000/get_all/`<params>`
@@ -481,6 +472,16 @@ After this data is stored in database , we will get "data stored to database" re
 |        **urls**          |    localhost:3000/get_all/urls            |  get all the urls of all the tweets         |
 
 
+
+
+### Save as CSV  
+
+> just like pagination, this api has provided an optional query-field to save filtered result as csv file.
+
+``` 
+    If you want to store any filtered result as a CSV file, just add 'save=1' to the query-fields.  
+    If not mentioned the default value for this field is taken as 0.
+```
 
   
   
