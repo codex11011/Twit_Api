@@ -94,8 +94,8 @@ router.get("/", (req, res) => {
   res.send("API_2");
 });
 
-//  query-format -> /filter_tweets/all_tweets?page=0&limit=3
-router.get("/all_tweets", (req, res) => {
+//  query-format -> /filter_tweets/get_all/tweets?page=0&limit=3
+router.get("/get_all/tweets", (req, res) => {
   obj = {};
   paginate(req, res, obj);
 });
@@ -334,8 +334,8 @@ router.get("/r_filter/fv_count/exact", (req, res) => {
 
 //Language
 //find all tweets with a particular language code
-// query-format -> /filter_tweets/filter/lang/lang?q=en&page=0&limit=2
-router.get("/filter/lang", (req, res) => {
+// query-format -> /filter_tweets/search/lang?lang=en&page=0&limit=2
+router.get("/search/lang", (req, res) => {
   obj = { tweet_language: req.query.lang };
   paginate(req, res, obj);
 });
@@ -420,16 +420,16 @@ router.get("/r_filter/date_range", (req, res) => {
 //Get Meta_Data
 
 //get user name of all the tweets
-// query-format -> /filter_tweets/getData/name?&page=0&limit=2
-router.get("/getdata/name", (req, res) => {
+// query-format -> /filter_tweets/get_all/name?&page=0&limit=2
+router.get("/get_all/name", (req, res) => {
   obj1 = {};
   obj2 = { "user.name": 1, _id: 0 };
   paginate2(req, res, obj1, obj2);
 });
 
 //get screen_name of all the tweets
-// query-format -> /filter_tweets/getData/screen_name?&page=0&limit=2
-router.get("/getdata/screen_name", (req, res) => {
+// query-format -> /filter_tweets/get_all/screen_name?&page=0&limit=2
+router.get("/get_all/screen_name", (req, res) => {
   obj1 = {};
   obj2 = { "user.screen_name": 1, _id: 0 };
   paginate2(req, res, obj1, obj2);
@@ -439,7 +439,7 @@ router.get("/getdata/screen_name", (req, res) => {
 //result contains username of the owner of the tweet and array
 //of object of user refrenced
 // query-format -> /filter_tweets/filter/user_mentions?&page=0&limit=2
-router.get("/getdata/user_mentions", (req, res) => {
+router.get("/get_all/user_mentions", (req, res) => {
   obj1 = {};
   obj2 = { "user.name": 1, "entities.user_mentions": 1, _id: 0 };
   paginate2(req, res, obj1, obj2);
@@ -448,42 +448,72 @@ router.get("/getdata/user_mentions", (req, res) => {
 //Urls
 //find all links in all the tweets
 // query-format -> /filter_tweets/getdata/urls?&page=0&limit=2
-router.get("/getdata/urls", (req, res) => {
+router.get("/get_all/urls", (req, res) => {
   obj1 = {};
   obj2 = { "entities.urls.expanded_url": 1, _id: 0 };
   paginate2(req, res, obj1, obj2);
 });
 
+
+
+
+//USER MENTIONS
 //search user_mentions > screen_name by starts with
-//query-format->  /filter_tweets/filter/user_mentions/screen_name/sw?sname=Mark&page=0&limit=2
+//query-format->  /filter_tweets/search/user_mentions/screen_name/sw?sname=Mark&page=0&limit=2
 //case-sensitive
-router.get("/filter/user_mentions/screen_name/sw", (req, res) => {
+router.get("/search/user_mentions/screen_name/sw", (req, res) => {
   let regx = new RegExp("^" + req.query.sname);
-  obj1 = { "entities.user_mentions.screen_name": regx };
-  obj2 = { "entities.user_mentions": 1, _id: 0 };
-  paginate2(req, res, obj1, obj2);
+  obj = { "entities.user_mentions.screen_name": regx };
+  paginate(req, res, obj);
 });
 
 //search user_mentions > screen_name by ends with
-//query-format->  /filter_tweets/filter/user_mentions/screen_name/ew?sname=Mark&page=0&limit=2
+//query-format->  /filter_tweets/search/user_mentions/screen_name/ew?sname=Mark&page=0&limit=2
 //case-sensitive
-router.get("/filter/user_mentions/screen_name/ew", (req, res) => {
+router.get("/search/user_mentions/screen_name/ew", (req, res) => {
   let regx = new RegExp(req.query.sname + "$");
-  obj1 = { "entities.user_mentions.screen_name": regx };
-  obj2 = { "entities.user_mentions": 1, _id: 0 };
-  paginate2(req, res, obj1, obj2);
+  obj = { "entities.user_mentions.screen_name": regx };
+  paginate(req, res, obj);
 });
 
 //search user_mentions > screen_name (exact match)
-//query-format->  /filter_tweets/filter/user_mentions/screen_name/ex?sname=Mark&page=0&limit=2
+//query-format->  /filter_tweets/search/user_mentions/screen_name/ex?sname=Mark&page=0&limit=2
 //case-sensitive
-router.get("/filter/user_mentions/screen_name/ex", (req, res) => {
+router.get("/search/user_mentions/screen_name/ex", (req, res) => {
   let regx = new RegExp(req.query.sname);
-  obj1 = { "entities.user_mentions.screen_name": regx };
-  obj2 = { "entities.user_mentions": 1, _id: 0 };
-  paginate2(req, res, obj1, obj2);
+  obj = { "entities.user_mentions.screen_name": regx };
+  paginate(req, res, obj);
+});
+//************************************************ */
+
+//search user_mentions > user_name by starts with
+//query-format->  /filter_tweets/search/user_mentions/username/sw?name=Mark&page=0&limit=2
+//case-sensitive
+router.get("/search/user_mentions/username/sw", (req, res) => {
+  let regx = new RegExp("^" + req.query.name);
+  obj = { "entities.user_mentions.screen_name": regx };
+  paginate(req, res, obj);
 });
 
-//************************************************ */
+//search user_mentions > user_name by ends with
+//query-format->  /filter_tweets/search/user_mentions/username/ew?name=Mark&page=0&limit=2
+//case-sensitive
+router.get("/search/user_mentions/username/ew", (req, res) => {
+  let regx = new RegExp(req.query.name + "$");
+  obj = { "entities.user_mentions.screen_name": regx };
+  paginate(req, res, obj);
+});
+
+//search user_mentions > user_name (exact match)
+//query-format->  /filter_tweets/search/user_mentions/username/ex?name=Mark&page=0&limit=2
+//case-sensitive
+router.get("/search/user_mentions/username/ex", (req, res) => {
+  let regx = new RegExp(req.query.name);
+  obj = { "entities.user_mentions.screen_name": regx };
+  paginate(req, res, obj);
+});
+/*******************************************************/
+
+
 
 module.exports = router;
