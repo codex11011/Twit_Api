@@ -111,24 +111,24 @@ router.get("/search", (req, res) => {
 
 //Screen_name
 
-// query-format -> /filter_tweets/search/tweet_screenname/ex?name=Mark&page=0&limit=3
+// query-format -> /filter_tweets/search/tweet_screen_name/ex?sname=Mark&page=0&limit=3
 //(exact match)
 //case-sensitive
 router.get("/search/tweet_screen_name/ex", (req, res) => {
-  obj = { "user.screen_name": req.query.s_name };
+  obj = { "user.screen_name": req.query.sname };
   paginate(req, res, obj);
 });
 
-// query-format -> /filter_tweets/search/tweet_screenname/sw?name=Ja&page=0&limit=3
+// query-format -> /filter_tweets/search/tweet_screen_name/sw?sname=Ja&page=0&limit=3
 router.get("/search/tweet_screen_name/sw", (req, res) => {
-  let regexp = new RegExp("^" + req.query.s_name);
+  let regexp = new RegExp("^" + req.query.sname);
   obj = { "user.screen_name": regexp };
   paginate(req, res, obj);
 });
 
-// query-format -> /filter_tweets/search/tweet_screenname/ew?name=Mark&page=0&limit=3
+// query-format -> /filter_tweets/search/tweet_screen_name/ew?sname=Mark&page=0&limit=3
 router.get("/search/tweet_screen_name/ew", (req, res) => {
-  let regexp = new RegExp(req.query.s_name + "$");
+  let regexp = new RegExp(req.query.sname + "$");
   obj = { "user.screen_name": regexp };
   paginate(req, res, obj);
 });
