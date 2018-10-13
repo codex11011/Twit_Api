@@ -8,6 +8,7 @@
    * [Prerequisites](#prerequisites)
    * [Installation](#installation-setting-up-project)
 3. [End Points](#end-points)
+   * [Server file](#server-file)
    * [Twitter-Search](#twitter-search)
    * [Twitter-Filter](#twitter-filter)
 
@@ -75,7 +76,7 @@ For installing package(s):
 3. ## End Points
  > list of all endpoints provided by this api.
  ****
- ### main_file
+ ### Server File
  consist of a 'get()' method which list operations to get Twitter_search and Filter_Tweets api. 
  
  renders the main page:-
@@ -87,9 +88,18 @@ For installing package(s):
  renders Filter_Tweets page:-
  > url : **local:3000/filter_tweets**
 
- > NOTE: `localhost:3000 equals 127.0.0.1:3000` is just where our main.js server is running. 
+ > NOTE: `localhost:3000 equals 127.0.0.1:3000` is just where our server(main.js) is running. 
 
-<strong style="color:green;">shubham</strong>
+
+    <link rel="stylesheet" href="/home/shubham/mpj/nodeapi/twitapi/node_modules/highlight.js/styles/sunburst.css">
+    <pre><code class='javascript'>
+        function wow(){
+            console.log('wow')
+        }
+    </code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
 
  ### Twitter-Search
  
