@@ -27,6 +27,7 @@
         * [Retweet Count](#retweet-count)
         * [Followers Count](#followers-count)
         * [Favourites Count](#favourites-count)
+        * [Date](#date)
      
 
 
@@ -162,13 +163,16 @@ To apply pagination just add the above fields to the query
 ****
 
 #### Search
-> endpoint :- **localhost:3000/filter_tweets/search**
+> **endpoint :- localhost:3000/filter_tweets/search**  
 
 ##### By Screen-Name
 
-> endpoint :- **localhost:3000/filter_tweets/search/tweet_screen_name/`<params>`?sname=user_screen_name**  
-> query-format :- **?sname=value**  
-> example => localhost:3000/filter_tweets/search/tweet_text/sw?sname=Jack
+> **endpoint :- localhost:3000/filter_tweets/search/tweet_screen_name/`<params>`?sname=user_screen_name**  
+
+> **query-format :- ?sname=value**  
+
+> **example** => localhost:3000/filter_tweets/search/tweet_text/sw?sname=Jack  
+
 
  #### `<Params>`  
    
@@ -176,14 +180,20 @@ To apply pagination just add the above fields to the query
 | -------------------- |:----------------------:| 
 |    **ex**            |   **equal to**         | 
 |    **sw**            |   **starts with**      |
-|    **ew**            |   **ends with**        |
+|    **ew**            |   **ends with**        |  
 
 
 ##### By User-Name
-> endpoint :- **localhost:3000/filter_tweets/search/tweet_username/`<params>`?name=user_name**  
-> query-format :- **?name=value**  
-> example => localhost:3000/filter_tweets/search/tweet_text/sw?name=Jack
-  
+
+```every tweet has user info attached to it```  
+
+> **endpoint :- localhost:3000/filter_tweets/search/tweet_username/`<params>`?name=user_name**  
+
+> **query-format :- ?name=value**  
+
+> **example** => localhost:3000/filter_tweets/search/tweet_username/sw?name=Jack  
+
+
  #### `<Params>`  
  
 |   params             |     represents         | 
@@ -191,12 +201,17 @@ To apply pagination just add the above fields to the query
 |    **ex**            |   **equal to**         | 
 |    **sw**            |   **starts with**      |
 |    **ew**            |   **ends with**        |
-  
 
-##### By Tweet Text
-> endpoint :- **localhost:3000/filter_tweets/search/tweet_text/`<params>`?text=value**  
-> query-format :- **?text=value**  
-> example => localhost:3000/filter_tweets/search/tweet_text/sw?text=Jack
+  
+##### By Tweet Text  
+
+``` search by text in the tweet```  
+
+> **endpoint :- localhost:3000/filter_tweets/search/tweet_text/`<params>`?text=value**  
+
+> **query-format :- ?text=value**  
+
+> **example** => localhost:3000/filter_tweets/search/tweet_text/sw?text=Jack  
 
 
  #### `<params>`  
@@ -213,13 +228,17 @@ To apply pagination just add the above fields to the query
 
 
 ### By User Mentions  
-user_mentions entity contain username and screen-name of other user's mentioned in the tweet.  
+
+```user_mentions entity contain username and screen-name of other user's mentioned in the tweet.```  
   
  ##### ScreenName  
- filter by sreen-name of mentioned user's
-> endpoint :- **localhost:3000/filter_tweets/search/user_mentions/screen_name/`<params>`?sname=screen_name**  
-> query-format :- **?sname=screen_name**  
-> example => localhost:3000/filter_tweets/search/user_mentions/screen_name/sw?name=Ja
+ ```filter by sreen-name of mentioned user's```  
+ 
+> **endpoint :- localhost:3000/filter_tweets/search/user_mentions/screen_name/`<params>`?sname=screen_name**  
+
+> **query-format :- ?sname=screen_name**  
+
+> **example** => localhost:3000/filter_tweets/search/user_mentions/screen_name/sw?name=Ja  
   
  #### `<Params>`  
  
@@ -234,9 +253,11 @@ user_mentions entity contain username and screen-name of other user's mentioned 
 
 ``` filter by user-name of mentioned user's```  
 
-> endpoint :- **localhost:3000/filter_tweets/search/user_mentions/username/`<params>`?name=username**  
-> query-format :- **?name=username**  
-> example => localhost:3000/filter_tweets/search/user_mentions/username/sw?name=Ja
+> **endpoint :- localhost:3000/filter_tweets/search/user_mentions/username/`<params>`?name=username**  
+
+> **query-format :- ?name=username**  
+
+> **example** => localhost:3000/filter_tweets/search/user_mentions/username/sw?name=Ja  
   
  #### `<Params>`  
  
@@ -251,13 +272,14 @@ user_mentions entity contain username and screen-name of other user's mentioned 
 
 
 #### Sort Tweet
-> endpoint :- **localhost:3000/filter_tweets/sort_tweet**
-
+> endpoint :- **localhost:3000/filter_tweets/sort_tweet**  
 
 ##### By Date
-> endpoint :- **localhost:3000/filter_tweets/sort_tweet/by_date?order=`<value>`**  
-> query-format :- **?order=`<value>`**  
-> example => localhost:3000/filter_tweets/sort_tweet/by_date?order=asc
+> **endpoint :- localhost:3000/filter_tweets/sort_tweet/by_date?order=`<value>`**  
+
+> **query-format :- ?order=`<value>`**  
+
+> **example  =>  localhost:3000/filter_tweets/sort_tweet/by_date?order=asc**  
 
  #### `<value>`  
  
@@ -267,10 +289,13 @@ user_mentions entity contain username and screen-name of other user's mentioned 
 |    **desc**               |    **descending order**     |
 
 
-##### By Retweet Count
-> endpoint :- **localhost:3000/filter_tweets/sort_tweet/by_rt_count?order=`<value>`**  
-> query-format :- **?order=value**  
-> example => localhost:3000/filter_tweets/sort_tweet/by_rt_count?order=asc
+##### By Retweet Count  
+
+> **endpoint :- localhost:3000/filter_tweets/sort_tweet/by_rt_count?order=`<value>`**  
+
+> **query-format :- ?order=value**  
+
+> **example** => localhost:3000/filter_tweets/sort_tweet/by_rt_count?order=asc  
 
  #### `<value>`  
  
@@ -282,17 +307,18 @@ user_mentions entity contain username and screen-name of other user's mentioned 
 ****
 
 
+
 #### Range Filters
 
 ```These filters are governed by range parameters```  
 
-> endpoint :- **localhost:3000/filter_tweets/r_filter/`<params_1>`/`<params2>`?`<query>`**
+> **endpoint :- localhost:3000/filter_tweets/r_filter/`<params_1>`/`<params2>`?`<query>`**  
 
-
+``` params_1 :- rt_count, fl_count, fv_count.```  
 
 ##### Retweet Count
 
-> endpoint :-  **localhost:3000/filter_tweets/r_filter/rt_count/`<params>`?`<query>`**
+> **endpoint :-  localhost:3000/filter_tweets/r_filter/rt_count/`<params>`?`<query>`**
  
 
 |         params           |        represents                 |      query fields         |     Interval          |
@@ -307,20 +333,24 @@ user_mentions entity contain username and screen-name of other user's mentioned 
 
 
 ```num,num1,num2 represents numeric value```  
-> query format :-  ?value=num  or ?value1=num1&value2=num2  
+> **query format** :-  ?value=num  **or** ?value1=num1&value2=num2  
 
-> **ex** example    =>     localhost:3000/filter_tweets/r_filter/rt_count/ex?value=200  
-> **gt** example    =>     localhost:3000/filter_tweets/r_filter/rt_count/gt?value=200  
-> **lt** example    =>     localhost:3000/filter_tweets/r_filter/rt_count/lt?value=200  
-> **gte** example   =>     localhost:3000/filter_tweets/r_filter/rt_count/gte?value=200  
-> **lte** example   =>     localhost:3000/filter_tweets/r_filter/rt_count/lte?value=200  
-> **range** example =>     localhost:3000/filter_tweets/r_filter/rt_count/range?value1=200&value2=300  
+> **ex example**  =>  localhost:3000/filter_tweets/r_filter/rt_count/ex?value=200  
 
+> **gt example**  =>  localhost:3000/filter_tweets/r_filter/rt_count/gt?value=200  
+
+> **lt example**  =>  localhost:3000/filter_tweets/r_filter/rt_count/lt?value=200  
+
+> **gte example**  =>  localhost:3000/filter_tweets/r_filter/rt_count/gte?value=200  
+
+> **lte example**  =>  localhost:3000/filter_tweets/r_filter/rt_count/lte?value=200  
+
+> **range example**  =>  localhost:3000/filter_tweets/r_filter/rt_count/range?value1=200&value2=300  
 
 
 ##### Followers Count
 
-> endpoint :-  **localhost:3000/filter_tweets/r_filter/fl_count/`<params>`?`<query>`**
+> **endpoint :-  localhost:3000/filter_tweets/r_filter/fl_count/`<params>`?`<query>`**
  
 
 |         params           |        represents                 |      query fields         |     Interval          |
@@ -333,17 +363,20 @@ user_mentions entity contain username and screen-name of other user's mentioned 
 
 
 ```num,num1,num2 represents numeric value```  
-> query format :-  ?value=num  or ?value1=num1&value2=num2  
+> **query format** :-  ?value=num  **or** ?value1=num1&value2=num2  
 
-> **ex** example    =>     localhost:3000/filter_tweets/r_filter/fl_count/ex?value=200  
-> **gt** example    =>     localhost:3000/filter_tweets/r_filter/fl_count/gt?value=200  
-> **lt** example    =>     localhost:3000/filter_tweets/r_filter/fl_count/lt?value=200  
-> **range** example =>     localhost:3000/filter_tweets/r_filter/fl_count/range?value1=200&value2=300  
+> **ex example**  =>  localhost:3000/filter_tweets/r_filter/fl_count/ex?value=200  
+
+> **gt example**  =>  localhost:3000/filter_tweets/r_filter/fl_count/gt?value=200  
+
+> **lt example**  =>  localhost:3000/filter_tweets/r_filter/fl_count/lt?value=200  
+
+> **range example**  =>  localhost:3000/filter_tweets/r_filter/fl_count/range?value1=200&value2=300  
 
 
 ##### Favourites Count
 
-> endpoint :-  **localhost:3000/filter_tweets/r_filter/fv_count/`<params>`?`<query>`**
+> **endpoint :-  localhost:3000/filter_tweets/r_filter/fv_count/`<params>`?`<query>`**
  
 
 |         params           |        represents                 |      query fields         |     Interval          |
@@ -356,12 +389,57 @@ user_mentions entity contain username and screen-name of other user's mentioned 
 
 
 ```num,num1,num2 represents numeric value```  
-> query format :-  ?value=num  or ?value1=num1&value2=num2  
+> **query format** :-  ?value=num  **or** ?value1=num1&value2=num2  
 
-> **ex** example    =>     localhost:3000/filter_tweets/r_filter/fv_count/ex?value=200  
-> **gt** example    =>     localhost:3000/filter_tweets/r_filter/fv_count/gt?value=200  
-> **lt** example    =>     localhost:3000/filter_tweets/r_filter/fv_count/lt?value=200  
-> **range** example =>     localhost:3000/filter_tweets/r_filter/fv_count/range?value1=200&value2=300  
+> **ex example**  =>  localhost:3000/filter_tweets/r_filter/fv_count/ex?value=200  
+
+> **gt example**  =>  localhost:3000/filter_tweets/r_filter/fv_count/gt?value=200  
+
+> **lt example**  =>  localhost:3000/filter_tweets/r_filter/fv_count/lt?value=200  
+
+> **range example**  =>  localhost:3000/filter_tweets/r_filter/fv_count/range?value1=200&value2=300  
+
+
+##### Followers Count
+
+> **endpoint :-  localhost:3000/filter_tweets/r_filter/fl_count/`<params>`?`<query>`**
+ 
+
+|         params           |        represents                 |      query fields         |     Interval          |
+| -------------------------|:---------------------------------:|:-------------------------:|----------------------:|
+|         **ex**           |         **equal to**              |        **value**          |       value ==        |
+|         **gt**           |       **greator than**            |        **value**          |       value <         |
+|         **lt**           |       **lower than**              |        **value**          |       value >         |
+|        **range**         |     **range in between**          |      **value1,value2**    |     value1<= =<value2 |
+|                          |                                   |                           |  or value2<= =<value1 |  
+
+
+```num,num1,num2 represents numeric value```  
+> **query format** :-  ?value=num  **or** ?value1=num1&value2=num2  
+
+> **ex example**    =>     localhost:3000/filter_tweets/r_filter/fl_count/ex?value=200  
+
+> **gt example**    =>     localhost:3000/filter_tweets/r_filter/fl_count/gt?value=200  
+
+> **lt example**    =>     localhost:3000/filter_tweets/r_filter/fl_count/lt?value=200  
+
+> **range example** =>     localhost:3000/filter_tweets/r_filter/fl_count/range?value1=200&value2=300  
+
+
+##### Date 
+
+> **endpoint :-  localhost:3000/filter_tweets/r_filter/date_range/?`<query>`**  
+
+> **query format** :-  ?date1=YYYY-MM-DD&date2=YYYY-MM-DD  
+
+|      query fields         |     date -format     |
+|---------------------------|---------------------:|
+|      **date1,date2**      |      YYYY-MM-DD      |  
+
+``` Their is no order attach with the dates ie., date1 > date2 or date2 > date1  
+```   
+> **date range example** =>     localhost:3000/filter_tweets/r_filter/date_range?date1=2018-10-09&date2=2018-11-09  
+
 
 
 
