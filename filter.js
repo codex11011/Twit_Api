@@ -256,8 +256,8 @@ router.get("/r_filter/rt_count/range", (req, res) => {
 });
 
 //find all tweets with retweet_count with a particular value (exactMatch)
-// query-format -> /filter_tweets/r_filter/rt_count/exact?value=225&page=0&limit=2
-router.get("/r_filter/rt_count/exact", (req, res) => {
+// query-format -> /filter_tweets/r_filter/rt_count/ex?value=225&page=0&limit=2
+router.get("/r_filter/rt_count/ex", (req, res) => {
   obj = { retweet_count: req.query.value };
   paginate(req, res, obj);
 });
@@ -290,8 +290,8 @@ router.get("/r_filter/fl_count/range", (req, res) => {
 });
 
 //find all tweets with followers_count with a particular value (exactMatch)
-// query-format -> /filter_tweets/r_filter/fl_count/exact?value=225&page=0&limit=2
-router.get("/r_filter/fl_count/exact", (req, res) => {
+// query-format -> /filter_tweets/r_filter/fl_count/ex?value=225&page=0&limit=2
+router.get("/r_filter/fl_count/ex", (req, res) => {
   obj = { "user.followers_count": req.query.value };
   paginate(req, res, obj);
 });
@@ -324,8 +324,8 @@ router.get("/r_filter/fv_count/range", (req, res) => {
 });
 
 //find all tweets with favourite_count with a particular value (exactMatch)
-// query-format -> /filter_tweets/r_filter/fv_count/exact?value=225&page=0&limit=2
-router.get("/r_filter/fv_count/exact", (req, res) => {
+// query-format -> /filter_tweets/r_filter/fv_count/ex?value=225&page=0&limit=2
+router.get("/r_filter/fv_count/ex", (req, res) => {
   obj = { tweet_favourite_count: req.query.value };
   paginate(req, res, obj);
 });
