@@ -28,7 +28,7 @@
         * [Followers Count](#followers-count)
         * [Favourites Count](#favourites-count)
         * [Date](#date)
-     
+   * [Save as CSV](#save-as-csv) 
 
 
 
@@ -443,6 +443,14 @@ that is already stored in the database.
 > **date range example** =>     localhost:3000/filter_tweets/r_filter/date_range?date1=2018-10-09&date2=2018-11-09  
 
 
+
+### Save as CSV  
+
+> just like pagination, this api has provided an optional query-field to save filtered result as csv file.
+
+``` If you want to store any filtered result as a CSV file, just add 'save=1' to the query-fields.  
+    If not mentioned the default value for this field is taken as 0.
+```
 
 
   
