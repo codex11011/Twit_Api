@@ -101,7 +101,15 @@ router.get("/all_tweets", (req, res) => {
   paginate(req, res, obj);
 });
 
+/***************************************** */
+//Search
+
+router.get("/search", (req, res) => {
+  res.send("welcome to twitter search-filter");
+});
 /*******************************************/
+
+
 
 //Screen_name
 
