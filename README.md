@@ -534,6 +534,9 @@ After this data is stored in database , we will get "data stored to database" re
     If not mentioned the default value for this field is taken as 0.
 ```
 
+
+``` eg:-  saving filtered data on the basis of retweet count between a given range. ```
+> example  =>  localhost:3000/filter_tweets/r_filter/rt_count/range?value1=200&value2=300&save=1  
   
   
   
