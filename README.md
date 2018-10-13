@@ -1,5 +1,4 @@
 
-
 # Twitter Filter Search
 
 ### Table of content 
@@ -90,16 +89,9 @@ For installing package(s):
 
  > NOTE: `localhost:3000 equals 127.0.0.1:3000` is just where our server(main.js) is running. 
 
-
-    <link rel="stylesheet" href="/home/shubham/mpj/nodeapi/twitapi/node_modules/highlight.js/styles/sunburst.css">
-    <pre><code class='javascript'>
-        function wow(){
-            console.log('wow')
-        }
-    </code></pre>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-
+<img src="markdownmonstericon.png"
+     alt="Markdown Monster icon"
+     style="float: left; margin-right: 10px;" />
 
  ### Twitter-Search
  
