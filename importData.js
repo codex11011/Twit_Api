@@ -6,9 +6,12 @@ const path = require("path");
 const fields = [
   "user.name",
   "user.screen_name",
+  "user.user_id",
   "created_at",
   "retweet_count",
-  "tweet_favorite_count"
+  "tweet_id",
+  "tweet_favorite_count",
+  "tweet_text"
 ];
 
 function saveFilteredData(docs) {
