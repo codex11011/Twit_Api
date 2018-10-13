@@ -89,9 +89,10 @@ For installing package(s):
 
  > NOTE: `localhost:3000 equals 127.0.0.1:3000` is just where our server(main.js) is running. 
 
-<img src="markdownmonstericon.png"
+ > <img src="https://github.com/shubham-tin/Twit_Api/blob/master/images/code2.png"
      alt="Markdown Monster icon"
-     style="float: left; margin-right: 10px;" />
+      width=50% height=50%
+    />
 
  ### Twitter-Search
  
