@@ -96,6 +96,16 @@ For installing package(s):
 
  ### Twitter-Search
  
- 
+ To render twitter-search response page use:- 
+> url : **localhost:3000/twitter_search** 
+
+To **get data** from twitter-search api use:-  
+> endpoint:- **/twitter_search/get_data?q=Keyword&date=YYYY-MM-DD&count=value** 
+```
+where 'q' is the 'Keyword'  
+'date' value represents since which date you want your data  
+'count' is number of results you want to store
+```
+> query format example: - localhost:3000/twitter_search/get_data?q=Elonmusk&date=2018-10-09&count=10  
 
    
