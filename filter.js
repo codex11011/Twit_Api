@@ -110,24 +110,24 @@ router.get("/search", (req, res) => {
 
 //Screen_name
 
-// query-format -> /filter_tweets/search/tweet_screenname/ex?name=Mark&page=0&limit=3
+// query-format -> /filter_tweets/search/tweet_screenname/ex?sname=Mark&page=0&limit=3
 //(exact match)
 //case-sensitive
 router.get("/search/tweet_screen_name/ex", (req, res) => {
-  obj = { "user.screen_name": req.query.s_name };
+  obj = { "user.screen_name": req.query.sname };
   paginate(req, res, obj);
 });
 
-// query-format -> /filter_tweets/search/tweet_screenname/sw?name=Ja&page=0&limit=3
+// query-format -> /filter_tweets/search/tweet_screenname/sw?sname=Ja&page=0&limit=3
 router.get("/search/tweet_screen_name/sw", (req, res) => {
-  let regexp = new RegExp("^" + req.query.s_name);
+  let regexp = new RegExp("^" + req.query.sname);
   obj = { "user.screen_name": regexp };
   paginate(req, res, obj);
 });
 
-// query-format -> /filter_tweets/search/tweet_screenname/ew?name=Mark&page=0&limit=3
+// query-format -> /filter_tweets/search/tweet_screenname/ew?sname=Mark&page=0&limit=3
 router.get("/search/tweet_screen_name/ew", (req, res) => {
-  let regexp = new RegExp(req.query.s_name + "$");
+  let regexp = new RegExp(req.query.sname + "$");
   obj = { "user.screen_name": regexp };
   paginate(req, res, obj);
 });
@@ -219,36 +219,36 @@ router.get("/sort_tweet/by_rt_count", (req, res) => {
 //Retweet_count
 
 //give tweets with retweet_count greator than a value
-// query-format -> /filter_tweets/filter/rt_count/gt?value=250&page=0&limit=2
-router.get("/filter/rt_count/gt", (req, res) => {
+// query-format -> /filter_tweets/r_filter/rt_count/gt?value=250&page=0&limit=2
+router.get("/r_filter/rt_count/gt", (req, res) => {
   obj = { retweet_count: { $gt: req.query.value } };
   paginate(req, res, obj);
 });
 
 //give tweets with retweet_count less than a value
-// query-format -> /filter_tweets/filter/rt_count/lt?value=250&page=0&limit=2
-router.get("/filter/rt_count/lt", (req, res) => {
+// query-format -> /filter_tweets/r_filter/rt_count/lt?value=250&page=0&limit=2
+router.get("/r_filter/rt_count/lt", (req, res) => {
   obj = { retweet_count: { $lt: req.query.value } };
   paginate(req, res, obj);
 });
 
 //give tweets with retweet_count greator than or equal to a value
-// query-format -> /filter_tweets/filter/rt_count/gte?value=250&page=0&limit=2
-router.get("/filter/rt_count/gte", (req, res) => {
+// query-format -> /filter_tweets/r_filter/rt_count/gte?value=250&page=0&limit=2
+router.get("/r_filter/rt_count/gte", (req, res) => {
   obj = { retweet_count: { $gte: req.query.value } };
   paginate(req, res, obj);
 });
 
 //give tweets with retweet_count less than or equal to a value
-// query-format -> /filter_tweets/filter/rt_count/lte?value=250&page=0&limit=2
-router.get("/filter/rt_count/lte", (req, res) => {
+// query-format -> /filter_tweets/r_filter/rt_count/lte?value=250&page=0&limit=2
+router.get("/r_filter/rt_count/lte", (req, res) => {
   obj = { retweet_count: { $lte: req.query.value } };
   paginate(req, res, obj);
 });
 
 //give tweets with retweet_count in a particular range eg:- [250,400]
-// query-format -> /filter_tweets/filter/rt_count/range?value1=250&value2=400&page=0&limit=2s
-router.get("/filter/rt_count/range", (req, res) => {
+// query-format -> /filter_tweets/r_filter/rt_count/range?value1=250&value2=400&page=0&limit=2s
+router.get("/r_filter/rt_count/range", (req, res) => {
   let lte = Math.max(req.query.value1, req.query.value2);
   let gte = Math.min(req.query.value1, req.query.value2);
   obj = { retweet_count: { $gte: gte, $lte: lte } };
@@ -256,8 +256,8 @@ router.get("/filter/rt_count/range", (req, res) => {
 });
 
 //find all tweets with retweet_count with a particular value (exactMatch)
-// query-format -> /filter_tweets/filter/rt_count/exact?value=225&page=0&limit=2
-router.get("/filter/rt_count/exact", (req, res) => {
+// query-format -> /filter_tweets/r_filter/rt_count/exact?value=225&page=0&limit=2
+router.get("/r_filter/rt_count/exact", (req, res) => {
   obj = { retweet_count: req.query.value };
   paginate(req, res, obj);
 });
@@ -267,22 +267,22 @@ router.get("/filter/rt_count/exact", (req, res) => {
 //Followers_count
 
 //give tweets with user's followers_count greator than a value
-// query-format -> /filter_tweets/filter/fl_count/gte?value=250&page=0&limit=2
-router.get("/filter/fl_count/gt", (req, res) => {
+// query-format -> /filter_tweets/r_filter/fl_count/gte?value=250&page=0&limit=2
+router.get("/r_filter/fl_count/gt", (req, res) => {
   obj = { "user.followers_count": { $gt: req.query.value } };
   paginate(req, res, obj);
 });
 
 //give tweets with user's followers_count less than a value
-// query-format -> /filter_tweets/filter/fl_count/lte?value=250&page=0&limit=2
-router.get("/filter/fl_count/lt", (req, res) => {
+// query-format -> /filter_tweets/r_filter/fl_count/lte?value=250&page=0&limit=2
+router.get("/r_filter/fl_count/lt", (req, res) => {
   obj = { "user.followers_count": { $lt: req.query.value } };
   paginate(req, res, obj);
 });
 
 //give tweets with user's followers_count in a particular range eg:- [250,400]
-// query-format -> /filter_tweets/filter/fl_count/range?value1=250&value2=400&page=0&limit=2
-router.get("/filter/fl_count/range", (req, res) => {
+// query-format -> /filter_tweets/r_filter/fl_count/range?value1=250&value2=400&page=0&limit=2
+router.get("/r_filter/fl_count/range", (req, res) => {
   let lte = Math.max(req.query.value1, req.query.value2);
   let gte = Math.min(req.query.value1, req.query.value2);
   obj = { "user.followers_count": { $gte: gte, $lte: lte } };
@@ -290,8 +290,8 @@ router.get("/filter/fl_count/range", (req, res) => {
 });
 
 //find all tweets with followers_count with a particular value (exactMatch)
-// query-format -> /filter_tweets/filter/fl_count/exact?value=225&page=0&limit=2
-router.get("/filter/fl_count/exact", (req, res) => {
+// query-format -> /filter_tweets/r_filter/fl_count/exact?value=225&page=0&limit=2
+router.get("/r_filter/fl_count/exact", (req, res) => {
   obj = { "user.followers_count": req.query.value };
   paginate(req, res, obj);
 });
@@ -301,22 +301,22 @@ router.get("/filter/fl_count/exact", (req, res) => {
 //Favourite_count
 
 //give tweets with favourite_count greator than a value
-// query-format -> /filter_tweets/filter/fv_count/gte?value=250&page=0&limit=2
-router.get("/filter/fv_count/gt", (req, res) => {
+// query-format -> /filter_tweets/r_filter/fv_count/gte?value=250&page=0&limit=2
+router.get("/r_filter/fv_count/gt", (req, res) => {
   obj = { tweet_favourite_count: { $gt: req.query.value } };
   paginate(req, res, obj);
 });
 
 //give tweets with followers_count less than a value
-// query-format -> /filter_tweets/filter/fv_count/lt?value=250
-router.get("/filter/fv_count/lt", (req, res) => {
+// query-format -> /filter_tweets/r_filter/fv_count/lt?value=250
+router.get("/r_filter/fv_count/lt", (req, res) => {
   obj = { tweet_favourite_count: { $lt: req.query.value } };
   paginate(req, res, obj);
 });
 
 //give tweets with followers_count in a particular range eg:- [250,400]
-// query-format -> /filter_tweets/filter/fv_count/range?value1=250&value2=400&page=0&limit=2
-router.get("/filter/fv_count/range", (req, res) => {
+// query-format -> /filter_tweets/r_filter/fv_count/range?value1=250&value2=400&page=0&limit=2
+router.get("/r_filter/fv_count/range", (req, res) => {
   let lte = Math.max(req.query.value1, req.query.value2);
   let gte = Math.min(req.query.value1, req.query.value2);
   obj = { tweet_favourite_count: { $gte: gte, $lte: lte } };
@@ -324,8 +324,8 @@ router.get("/filter/fv_count/range", (req, res) => {
 });
 
 //find all tweets with favourite_count with a particular value (exactMatch)
-// query-format -> /filter_tweets/filter/fv_count/exact?value=225&page=0&limit=2
-router.get("/filter/fv_count/exact", (req, res) => {
+// query-format -> /filter_tweets/r_filter/fv_count/exact?value=225&page=0&limit=2
+router.get("/r_filter/fv_count/exact", (req, res) => {
   obj = { tweet_favourite_count: req.query.value };
   paginate(req, res, obj);
 });
@@ -395,8 +395,8 @@ date_Validation = req => {
   }
 };
 //find all tweets between a given range of dates eg:(2018-10-09,2018-10-10)
-//query-format -> /filter_tweets//filter/date_range?date1=2018-10-09&date2=2018-10-15&page=0&limit=2
-router.get("/filter/date_range", (req, res) => {
+//query-format -> /filter_tweets/r_filter/date_range?date1=2018-10-09&date2=2018-10-15&page=0&limit=2
+router.get("/r_filter/date_range", (req, res) => {
   if (!date_Validation(req)) {
     console.log("Invalid Date");
     res.send("Invalid Date");
@@ -455,30 +455,30 @@ router.get("/getdata/urls", (req, res) => {
 });
 
 //search user_mentions > screen_name by starts with
-//query-format->  /filter_tweets/filter/user_mentions/screen_name/sw?name=Mark&page=0&limit=2
+//query-format->  /filter_tweets/filter/user_mentions/screen_name/sw?sname=Mark&page=0&limit=2
 //case-sensitive
 router.get("/filter/user_mentions/screen_name/sw", (req, res) => {
-  let regx = new RegExp("^" + req.query.name);
+  let regx = new RegExp("^" + req.query.sname);
   obj1 = { "entities.user_mentions.screen_name": regx };
   obj2 = { "entities.user_mentions": 1, _id: 0 };
   paginate2(req, res, obj1, obj2);
 });
 
 //search user_mentions > screen_name by ends with
-//query-format->  /filter_tweets/filter/user_mentions/screen_name/ew?name=Mark&page=0&limit=2
+//query-format->  /filter_tweets/filter/user_mentions/screen_name/ew?sname=Mark&page=0&limit=2
 //case-sensitive
 router.get("/filter/user_mentions/screen_name/ew", (req, res) => {
-  let regx = new RegExp(req.query.name + "$");
+  let regx = new RegExp(req.query.sname + "$");
   obj1 = { "entities.user_mentions.screen_name": regx };
   obj2 = { "entities.user_mentions": 1, _id: 0 };
   paginate2(req, res, obj1, obj2);
 });
 
 //search user_mentions > screen_name (exact match)
-//query-format->  /filter_tweets/filter/user_mentions/screen_name/ex?name=Mark&page=0&limit=2
+//query-format->  /filter_tweets/filter/user_mentions/screen_name/ex?sname=Mark&page=0&limit=2
 //case-sensitive
 router.get("/filter/user_mentions/screen_name/ex", (req, res) => {
-  let regx = new RegExp(req.query.name);
+  let regx = new RegExp(req.query.sname);
   obj1 = { "entities.user_mentions.screen_name": regx };
   obj2 = { "entities.user_mentions": 1, _id: 0 };
   paginate2(req, res, obj1, obj2);
