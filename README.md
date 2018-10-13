@@ -15,11 +15,19 @@
         * [By Screen-Name](#by-screen-name)
         * [By User-Name](#by-user-name)
         * [By Tweet Text](#by-tweet-text)
+        * [By User Mentions](#by-user-mentions)
+           1. [ScreenName](#screenname)
+           2. [UserName](#username)
+           
      3. [Sort Tweet](#sort-tweet)
         * [By Date](#by-date)
         * [By Retweet Count](#by-retweet-count)
-        
-     4. []
+     
+     4. [Range Filters](#range-filters)
+        * [Retweet Count](#retweet-count)
+        * [Followers Count](#followers-count)
+        * [Favourites Count](#favourites-count)
+     
 
 
 
@@ -197,6 +205,7 @@ To apply pagination just add the above fields to the query
 |    **co**            |   **contains**         |
 
 
+
 #### Sort Tweet
 > endpoint :- **localhost:3000/filter_tweets/sort_tweet**
 
@@ -229,6 +238,14 @@ To apply pagination just add the above fields to the query
 | ------------------------- |:---------------------------:| 
 |    **asc**                |    **ascending order**      | 
 |    **desc**               |    **descending order**     |
+
+
+
+#### Range Filters
+```These filters are governed by range parameters```
+> endpoint :- **localhost:3000/filter_tweets/**
+
+
 
 
   
