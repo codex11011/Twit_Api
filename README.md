@@ -28,6 +28,8 @@
         * [Followers Count](#followers-count)
         * [Favourites Count](#favourites-count)
         * [Date](#date)
+     5. [Get all Data](#get-all-data)
+     
    * [Save as CSV](#save-as-csv) 
 
 
@@ -465,10 +467,21 @@ After this data is stored in database , we will get "data stored to database" re
     If not mentioned the default value for this field is taken as 0.
 ```
 
+### Get all Data
+  
+  > endpoints :-  localhost:3000/get_all/`<params>`
+  
+  
+|         params           |           endpoints                       |  get data(for a particular keyword search)  |
+|--------------------------|:-----------------------------------------:|--------------------------------------------:|
+|       **tweets**         |    localhost:3000/get_all/tweets          |  get all the tweets stored in database      |
+|        **name**          |    localhost:3000/get_all/name            |  get username of all the user's who tweeted |
+|      **screen_name**     |    localhost:3000/get_all/screen_name     |  get screen name of all use's who tweeted   |
+|    **user_mentions**     |    localhost:3000/get_all/user_mentions   |  get all the user mentioned in all tweets   |
+|        **urls**          |    localhost:3000/get_all/urls            |  get all the urls of all the tweets         |
 
-  
-  
-  
+
+
   
   
   
