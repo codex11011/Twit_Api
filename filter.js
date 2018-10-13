@@ -1,4 +1,5 @@
-
+// const mongoose = require("mongoose");
+// const readlineSync = require("readline-sync");
 const Twitter_Data = require("./data_schema");
 const moment = require("moment");
 let router = require("express").Router();
@@ -110,24 +111,24 @@ router.get("/search", (req, res) => {
 
 //Screen_name
 
-// query-format -> /filter_tweets/search/tweet_screenname/ex?sname=Mark&page=0&limit=3
+// query-format -> /filter_tweets/search/tweet_screenname/ex?name=Mark&page=0&limit=3
 //(exact match)
 //case-sensitive
 router.get("/search/tweet_screen_name/ex", (req, res) => {
-  obj = { "user.screen_name": req.query.sname };
+  obj = { "user.screen_name": req.query.s_name };
   paginate(req, res, obj);
 });
 
-// query-format -> /filter_tweets/search/tweet_screenname/sw?sname=Ja&page=0&limit=3
+// query-format -> /filter_tweets/search/tweet_screenname/sw?name=Ja&page=0&limit=3
 router.get("/search/tweet_screen_name/sw", (req, res) => {
-  let regexp = new RegExp("^" + req.query.sname);
+  let regexp = new RegExp("^" + req.query.s_name);
   obj = { "user.screen_name": regexp };
   paginate(req, res, obj);
 });
 
-// query-format -> /filter_tweets/search/tweet_screenname/ew?sname=Mark&page=0&limit=3
+// query-format -> /filter_tweets/search/tweet_screenname/ew?name=Mark&page=0&limit=3
 router.get("/search/tweet_screen_name/ew", (req, res) => {
-  let regexp = new RegExp(req.query.sname + "$");
+  let regexp = new RegExp(req.query.s_name + "$");
   obj = { "user.screen_name": regexp };
   paginate(req, res, obj);
 });
@@ -192,7 +193,6 @@ router.get("/search/tweet_text/ew", (req, res) => {
 
 //Sorting
 
-
 router.get("/sort_tweet", (req, res) => {
   res.send("welcome to twitter sort_tweet-filter");
 });
@@ -213,6 +213,10 @@ router.get("/sort_tweet/by_rt_count", (req, res) => {
 });
 
 //******************************************************** */
+
+router.get("/r_filter", (req, res) => {
+  res.send("welcome to twitter range filters ");
+});
 
 //************************************************** */
 
@@ -380,7 +384,10 @@ router.get("/search/lang", (req, res) => {
 //Date range
 
 send_data_date = (date2, date1, req, res) => {
-  obj = { created_at: { $gte: date2, $lte: date1 } };
+  // d1 = date1.toISOString();
+  // d2 = date2.toISOString();
+  console.log(date1, date2);
+  obj = { created_at: { $gte: new Date(date2), $lte: new Date(date1) } };
   paginate(req, res, obj);
 };
 
@@ -397,6 +404,7 @@ date_Validation = req => {
 //find all tweets between a given range of dates eg:(2018-10-09,2018-10-10)
 //query-format -> /filter_tweets/r_filter/date_range?date1=2018-10-09&date2=2018-10-15&page=0&limit=2
 router.get("/r_filter/date_range", (req, res) => {
+  console.log(req.query.date1, req.query.date2);
   if (!date_Validation(req)) {
     console.log("Invalid Date");
     res.send("Invalid Date");
@@ -405,12 +413,16 @@ router.get("/r_filter/date_range", (req, res) => {
     console.log("Valid Date");
     let date1 = moment(req.query.date1).format();
     let date2 = moment(req.query.date2).format();
+    console.log(req.query.date1, req.query.date2);
+    console.log(date1, date2);
     if (moment(date1).isAfter(date2)) {
-      send_data_date(date2, date1, res);
       console.log("date1 > date2");
+      console.log(date1, date2);
+      send_data_date(date2, date1, req, res);
     } else if (moment(date2).isAfter(date1)) {
-      send_data_date(date1, date2, req, res);
       console.log("date1 < date2");
+      console.log(date1, date2);
+      send_data_date(date1, date2, req, res);
     }
   }
 });
@@ -418,10 +430,55 @@ router.get("/r_filter/date_range", (req, res) => {
 //************************************************ */
 
 //Get Meta_Data
+router.get("/get_all", (req, res) => {
+  res.send("welcome to 'get all data' filter");
+});
+
+router.get("/get_all/user_id", (req, res) => {
+  obj1 = {};
+  obj2 = { "user.user_id": 1, _id: 0 };
+  paginate2(req, res, obj1, obj2);
+});
+
+router.get("/get_all/tweet_id", (req, res) => {
+  obj1 = {};
+  obj2 = { tweet_id: 1, _id: 0 };
+  paginate2(req, res, obj1, obj2);
+});
+
+router.get("/get_all/retweet_count", (req, res) => {
+  obj1 = {};
+  obj2 = { retweet_count: 1, _id: 0 };
+  paginate2(req, res, obj1, obj2);
+});
+
+router.get("/get_all/tweet_favourite_count", (req, res) => {
+  obj1 = {};
+  obj2 = { tweet_favorite_count: 1, _id: 0 };
+  paginate2(req, res, obj1, obj2);
+});
+
+router.get("/get_all/user_followers", (req, res) => {
+  obj1 = {};
+  obj2 = { "user.followers_count": 1, _id: 0 };
+  paginate2(req, res, obj1, obj2);
+});
+
+router.get("/get_all/user_favourite_count", (req, res) => {
+  obj1 = {};
+  obj2 = { "user.favourite_count": 1, _id: 0 };
+  paginate2(req, res, obj1, obj2);
+});
+
+router.get("/get_all/user_friends_count", (req, res) => {
+  obj1 = {};
+  obj2 = { "user.friends_count": 1, _id: 0 };
+  paginate2(req, res, obj1, obj2);
+});
 
 //get user name of all the tweets
-// query-format -> /filter_tweets/get_all/name?&page=0&limit=2
-router.get("/get_all/name", (req, res) => {
+// query-format -> /filter_tweets/get_all/username?&page=0&limit=2
+router.get("/get_all/username", (req, res) => {
   obj1 = {};
   obj2 = { "user.name": 1, _id: 0 };
   paginate2(req, res, obj1, obj2);
@@ -438,7 +495,7 @@ router.get("/get_all/screen_name", (req, res) => {
 //other user mentioned in the tweet by the owner of the tweet
 //result contains username of the owner of the tweet and array
 //of object of user refrenced
-// query-format -> /filter_tweets/filter/user_mentions?&page=0&limit=2
+// query-format -> /filter_tweets/get_all/user_mentions?&page=0&limit=2
 router.get("/get_all/user_mentions", (req, res) => {
   obj1 = {};
   obj2 = { "user.name": 1, "entities.user_mentions": 1, _id: 0 };
@@ -447,17 +504,13 @@ router.get("/get_all/user_mentions", (req, res) => {
 
 //Urls
 //find all links in all the tweets
-// query-format -> /filter_tweets/getdata/urls?&page=0&limit=2
+// query-format -> /filter_tweets/get_all/urls?&page=0&limit=2
 router.get("/get_all/urls", (req, res) => {
   obj1 = {};
   obj2 = { "entities.urls.expanded_url": 1, _id: 0 };
   paginate2(req, res, obj1, obj2);
 });
 
-
-
-
-//USER MENTIONS
 //search user_mentions > screen_name by starts with
 //query-format->  /filter_tweets/search/user_mentions/screen_name/sw?sname=Mark&page=0&limit=2
 //case-sensitive
@@ -480,11 +533,9 @@ router.get("/search/user_mentions/screen_name/ew", (req, res) => {
 //query-format->  /filter_tweets/search/user_mentions/screen_name/ex?sname=Mark&page=0&limit=2
 //case-sensitive
 router.get("/search/user_mentions/screen_name/ex", (req, res) => {
-  let regx = new RegExp(req.query.sname);
-  obj = { "entities.user_mentions.screen_name": regx };
+  obj = { "entities.user_mentions.screen_name": req.query.sname };
   paginate(req, res, obj);
 });
-//************************************************ */
 
 //search user_mentions > user_name by starts with
 //query-format->  /filter_tweets/search/user_mentions/username/sw?name=Mark&page=0&limit=2
@@ -508,12 +559,10 @@ router.get("/search/user_mentions/username/ew", (req, res) => {
 //query-format->  /filter_tweets/search/user_mentions/username/ex?name=Mark&page=0&limit=2
 //case-sensitive
 router.get("/search/user_mentions/username/ex", (req, res) => {
-  let regx = new RegExp(req.query.name);
-  obj = { "entities.user_mentions.name": regx };
+  obj = { "entities.user_mentions.name": req.query.name };
   paginate(req, res, obj);
 });
-/*******************************************************/
 
-
+//************************************************ */
 
 module.exports = router;
