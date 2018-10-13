@@ -312,7 +312,8 @@ user_mentions entity contain username and screen-name of other user's mentioned 
 |                          |                                   |                           |  or value2<= =<value1 |  
 
 
-> query format :-  ?value=numeric_value  
+```num,num1,num2 represents numeric value```  
+> query format :-  ?value=num  or ?value1=num1&value2=num2  
 
 > **ex** example    =>     localhost:3000/filter_tweets/r_filter/rt_count/ex?value=200  
 > **gt** example    =>     localhost:3000/filter_tweets/r_filter/rt_count/gt?value=200  
@@ -320,6 +321,55 @@ user_mentions entity contain username and screen-name of other user's mentioned 
 > **gte** example   =>     localhost:3000/filter_tweets/r_filter/rt_count/gte?value=200  
 > **lte** example   =>     localhost:3000/filter_tweets/r_filter/rt_count/lte?value=200  
 > **range** example =>     localhost:3000/filter_tweets/r_filter/rt_count/range?value1=200&value2=300  
+
+
+
+##### Followers Count
+
+> endpoint :-  **localhost:3000/filter_tweets/r_filter/fl_count/<params>?<query>**
+ 
+
+|         params           |        represents                 |      query fields         |     Interval          |
+| -------------------------|:---------------------------------:|:-------------------------:|----------------------:|
+|         **ex**           |         **equal to**              |        **value**          |       value ==        |
+|         **gt**           |       **greator than**            |        **value**          |       value <         |
+|         **lt**           |       **lower than**              |        **value**          |       value >         |
+|        **range**         |     **range in between**          |      **value1,value2**    |     value1<= =<value2 |
+|                          |                                   |                           |  or value2<= =<value1 |  
+
+
+```num,num1,num2 represents numeric value```  
+> query format :-  ?value=num  or ?value1=num1&value2=num2  
+
+> **ex** example    =>     localhost:3000/filter_tweets/r_filter/fl_count/ex?value=200  
+> **gt** example    =>     localhost:3000/filter_tweets/r_filter/fl_count/gt?value=200  
+> **lt** example    =>     localhost:3000/filter_tweets/r_filter/fl_count/lt?value=200  
+> **range** example =>     localhost:3000/filter_tweets/r_filter/fl_count/range?value1=200&value2=300  
+
+
+##### Favourites Count
+
+> endpoint :-  **localhost:3000/filter_tweets/r_filter/fv_count/<params>?<query>**
+ 
+
+|         params           |        represents                 |      query fields         |     Interval          |
+| -------------------------|:---------------------------------:|:-------------------------:|----------------------:|
+|         **ex**           |         **equal to**              |        **value**          |       value ==        |
+|         **gt**           |       **greator than**            |        **value**          |       value <         |
+|         **lt**           |       **lower than**              |        **value**          |       value >         |
+|        **range**         |     **range in between**          |      **value1,value2**    |     value1<= =<value2 |
+|                          |                                   |                           |  or value2<= =<value1 |  
+
+
+```num,num1,num2 represents numeric value```  
+> query format :-  ?value=num  or ?value1=num1&value2=num2  
+
+> **ex** example    =>     localhost:3000/filter_tweets/r_filter/fv_count/ex?value=200  
+> **gt** example    =>     localhost:3000/filter_tweets/r_filter/fv_count/gt?value=200  
+> **lt** example    =>     localhost:3000/filter_tweets/r_filter/fv_count/lt?value=200  
+> **range** example =>     localhost:3000/filter_tweets/r_filter/fv_count/range?value1=200&value2=300  
+
+
 
   
   
