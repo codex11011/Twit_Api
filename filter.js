@@ -105,23 +105,24 @@ router.get("/all_tweets", (req, res) => {
 
 //Screen_name
 
-// query-format -> /api_2/search/tweet_screenname?name=Mark&page=0&limit=3
-//(exact match)
-//case-sensitive
-router.get("/search/tweet_screenname", (req, res) => {
+//exact match
+// query-format -> /api_2/search/tweet_screen_name/ex?name=Mark&page=0&limit=3
+router.get("/search/tweet_screen_name/ex", (req, res) => {
   obj = { "user.screen_name": req.query.name };
   paginate(req, res, obj);
 });
 
-// query-format -> /api_2/search/tweet_screenname/sw?name=Ja&page=0&limit=3
-router.get("/search/tweet_screenname/sw", (req, res) => {
+//starts with
+// query-format -> /api_2/search/tweet_screen_name/sw?name=Ja&page=0&limit=3
+router.get("/search/tweet_screen_name/sw", (req, res) => {
   let regexp = new RegExp("^" + req.query.name);
   obj = { "user.screen_name": regexp };
   paginate(req, res, obj);
 });
 
-// query-format -> /api_2/search/tweet_screenname/ew?name=Mark&page=0&limit=3
-router.get("/search/tweet_screenname/ew", (req, res) => {
+//ends with
+// query-format -> /api_2/search/tweet_screen_name/ew?name=Mark&page=0&limit=3
+router.get("/search/tweet_screen_name/ew", (req, res) => {
   let regexp = new RegExp(req.query.name + "$");
   obj = { "user.screen_name": regexp };
   paginate(req, res, obj);
@@ -130,13 +131,14 @@ router.get("/search/tweet_screenname/ew", (req, res) => {
 /************************************************* */
 //User_name
 
-// query-format -> /api_2/search/tweet_username?name=Mark&page=0&limit=3
 //exact match
-router.get("/search/tweet_username", (req, res) => {
+// query-format -> /api_2/search/tweet_username/ex?name=Mark&page=0&limit=3
+router.get("/search/tweet_username/ex", (req, res) => {
   obj = { "user.name": req.query.name };
   paginate(req, res, obj);
 });
 
+//starts with
 // query-format -> /api_2/search/tweet_username/sw?name=Ja&page=0&limit=3
 router.get("/search/tweet_username/sw", (req, res) => {
   let regexp = new RegExp("^" + req.query.name);
@@ -144,6 +146,7 @@ router.get("/search/tweet_username/sw", (req, res) => {
   paginate(req, res, obj);
 });
 
+//ends with
 // query-format -> /api_2/search/tweet_username/ew?name=Mark&page=0&limit=3
 router.get("/search/tweet_username/ew", (req, res) => {
   let regexp = new RegExp(req.query.name + "$");
@@ -154,22 +157,31 @@ router.get("/search/tweet_username/ew", (req, res) => {
 /******************************************* */
 //Search Tweet Text
 
-// query-format -> api_2/search/tweet_text/contains?text=Breath&page=0&limit=2
-//search for substring
+//contains
+// query-format -> api_2/search/tweet_text/co?text=Breath&page=0&limit=2
 router.get("/search/tweet_text/contains", (req, res) => {
   obj = { tweet_text: { $regex: `${req.query.text}`, $options: "i" } };
   paginate(req, res, obj);
 });
+
+
+//exact match
+// query-format -> api_2/search/tweet_text/ex?text=Breath&page=0&limit=2
+router.get("/search/tweet_text/ex", (req, res) => {
+  obj = { tweet_text: req.query.text };
+  paginate(req, res, obj);
+});
+
+//starts with
 // query-format -> api_2/search/tweet_text/sw?text=Ja&page=0&limit=2
-//search for starts_with
 router.get("/search/tweet_text/sw", (req, res) => {
   let regexp = new RegExp("^" + req.query.text);
   obj = { tweet_text: regexp };
   paginate(req, res, obj);
 });
 
+//ends with
 // query-format -> api_2/search/tweet_text/ew?text=Rt&page=0&limit=2
-//search for ends_with
 router.get("/search/tweet_text/ew", (req, res) => {
   var regexp = new RegExp(req.query.text + "$");
   obj = { tweet_text: regexp };
@@ -181,7 +193,6 @@ router.get("/search/tweet_text/ew", (req, res) => {
 
 // query-format -> api_2/sort_tweet/by_date?order=asc&page=0&limit=2
 //order can take asc or desc
-
 router.get("/sort_tweet/by_date", (req, res) => {
   obj = { created_at: req.query.order };
   paginate1(req, res, obj);
