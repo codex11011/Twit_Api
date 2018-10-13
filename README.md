@@ -235,7 +235,9 @@ user_mentions entity contain username and screen-name of other user's mentioned 
 
 
  ##### UserName  
- filter by user-name of mentioned user's
+
+``` filter by user-name of mentioned user's```  
+
 > endpoint :- **localhost:3000/filter_tweets/search/user_mentions/username/`<params>`?name=username**  
 > query-format :- **?name=username**  
 > example => localhost:3000/filter_tweets/search/user_mentions/username/sw?name=Ja
@@ -287,7 +289,9 @@ user_mentions entity contain username and screen-name of other user's mentioned 
 
 
 #### Range Filters
-```These filters are governed by range parameters```
+
+```These filters are governed by range parameters```  
+
 > endpoint :- **localhost:3000/filter_tweets/r_filter/<params_1>/<params_2>?<query>**
 
 
@@ -305,15 +309,18 @@ user_mentions entity contain username and screen-name of other user's mentioned 
 |         **gte**          |    **greator than or equal to**   |        **value**          |       value <=        |
 |         **lte**          |    **lower than or equal to**     |        **value**          |       value >=        |
 |        **range**         |     **range in between**          |      **value1,value2**    |     value1<= =<value2 |
-                                                                                           |  or value2<= =<value1 |  
-                                                                                           
-> query format :-  ?value=numeric_value 
-> **ex** example    =>     localhost:3000/filter_tweets/r_filter/rt_count/ex?value=200
-> **gt** example    =>     localhost:3000/filter_tweets/r_filter/rt_count/gt?value=200
-> **lt** example    =>     localhost:3000/filter_tweets/r_filter/rt_count/lt?value=200
-> **gte** example   =>     localhost:3000/filter_tweets/r_filter/rt_count/gte?value=200
-> **lte** example   =>     localhost:3000/filter_tweets/r_filter/rt_count/lte?value=200
-> **range** example =>     localhost:3000/filter_tweets/r_filter/rt_count/range?value1=200&value2=300
+|                          |                                   |                           |  or value2<= =<value1 |  
+
+
+> query format :-  ?value=numeric_value  
+
+> **ex** example    =>     localhost:3000/filter_tweets/r_filter/rt_count/ex?value=200  
+> **gt** example    =>     localhost:3000/filter_tweets/r_filter/rt_count/gt?value=200  
+> **lt** example    =>     localhost:3000/filter_tweets/r_filter/rt_count/lt?value=200  
+> **gte** example   =>     localhost:3000/filter_tweets/r_filter/rt_count/gte?value=200  
+> **lte** example   =>     localhost:3000/filter_tweets/r_filter/rt_count/lte?value=200  
+> **range** example =>     localhost:3000/filter_tweets/r_filter/rt_count/range?value1=200&value2=300  
+
   
   
   
