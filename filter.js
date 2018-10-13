@@ -491,7 +491,7 @@ router.get("/search/user_mentions/screen_name/ex", (req, res) => {
 //case-sensitive
 router.get("/search/user_mentions/username/sw", (req, res) => {
   let regx = new RegExp("^" + req.query.name);
-  obj = { "entities.user_mentions.screen_name": regx };
+  obj = { "entities.user_mentions.name": regx };
   paginate(req, res, obj);
 });
 
@@ -500,7 +500,7 @@ router.get("/search/user_mentions/username/sw", (req, res) => {
 //case-sensitive
 router.get("/search/user_mentions/username/ew", (req, res) => {
   let regx = new RegExp(req.query.name + "$");
-  obj = { "entities.user_mentions.screen_name": regx };
+  obj = { "entities.user_mentions.name": regx };
   paginate(req, res, obj);
 });
 
@@ -509,7 +509,7 @@ router.get("/search/user_mentions/username/ew", (req, res) => {
 //case-sensitive
 router.get("/search/user_mentions/username/ex", (req, res) => {
   let regx = new RegExp(req.query.name);
-  obj = { "entities.user_mentions.screen_name": regx };
+  obj = { "entities.user_mentions.name": regx };
   paginate(req, res, obj);
 });
 /*******************************************************/
