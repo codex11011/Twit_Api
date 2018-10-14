@@ -26,7 +26,7 @@ const DataSchema = new Schema({
     }
   ],
   tweet_text: { type: String },
-  tweet_id: { type: Number },
+  tweet_id: { type: Number,unique:true },
   created_at: Date,
   retweet_count: { type: Number },
   tweet_favorite_count: { type: Number },
