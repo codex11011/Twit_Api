@@ -5,7 +5,7 @@ const DataSchema = new Schema({
   user: {
     name: { type: String }, //name of user
     screen_name: { type: String }, //username of user
-    user_id: { type: Number, unique: true }, //user_id
+    user_id: { type: Number}, //user_id, already unique no need to put a check on it
     url: String,
     followers_count: Number,
     favourite_count: Number,
