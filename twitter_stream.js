@@ -100,7 +100,7 @@ async function twitter_stream(query) {
   });
   count = 0;
   stream.on("tweet", async tweet => {
-    let date1 = new Date("2018-10-14T22:17:00.000Z");
+    let date1 = new Date("2018-10-14T22:17:00.000Z"); // future point date , where you want to stop streaming
     let date = new Date(tweet.created_at);
     if (date1 - date === 0) {
       stream.stop();
