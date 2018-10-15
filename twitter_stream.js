@@ -132,4 +132,4 @@ async function twitter_stream(query) {
   });
 }
 
-twitter_stream("BTS");
+twitter_stream("BTS");//query
