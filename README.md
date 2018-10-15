@@ -556,7 +556,9 @@ the default value will be considered. ie., 'asc'
   ### NOTE  
   
   > **Twitter-Stream** file needs to run seperately. Database used is different from Twitter-Search.  
+       
         
+      To run stream-file: node twitterstream.js  
         
       This api saves the live-tweets to database. Requires two parameters:-  
       * Keyword - query needed to be search  
