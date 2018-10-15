@@ -32,7 +32,7 @@
      5. [Get all Data](#get-all-data)
      
    * [Save as CSV](#save-as-csv) 
-
+   * [NOTE](#note)
 
 
 
@@ -552,5 +552,16 @@ the default value will be considered. ie., 'asc'
   
   
   
+  
+  ### NOTE  
+  
+  > **Twitter-Stream** file needs to run seperately. Database used is different from Twitter-Search.  
+        
+        
+      This api saves the live-tweets to database. Requires two parameters:-  
+      * Keyword - query needed to be search  
+      * start/stop option to start/stop stram - 1 for start and 0 for stop
+
+query-formt: **localhost:3000/twitterstream?keyword=name&option=1**
   
   
