@@ -19,9 +19,9 @@ mongoose.connect(
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); //complex algo for parsing
 
-// "query format: localhost:3000/twitter_stream?keyword=Modi&date=2018-10-14T22:17:00.000Z"
+// "query format: localhost:3000/twitter_stream?keyword=Modi&option=1"
 app.get("/twitter_stream", async (req, res) => {
-  await twitter_stream(req.query.keyword, req.query.date);
+  await twitter_stream(req.query.keyword, req.query.option);
   res.send("data saved");
 });
 
@@ -102,20 +102,18 @@ object_creation = async e => {
   return obj;
 };
 
-async function twitter_stream(keyword, st_date) {
+async function twitter_stream(keyword, option) {
   let T = new Twit(config);
   let stream = await T.stream("statuses/filter", {
     track: "#" + keyword
   });
   count = 0;
   stream.on("tweet", async tweet => {
-    let date1 = new Date(st_date);
-    let date = new Date(tweet.created_at);
-    if (date1 - date === 0) {
+    if (option === 0) {
       stream.stop();
       console.log("stopped");
       return;
-    } else {
+    } else if (option === 1) {
       console.log(tweet.created_at);
       let txt = await get_Text(tweet);
       let tweet_obj = await object_creation(tweet, txt);
