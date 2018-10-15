@@ -2,7 +2,7 @@ const Twit = require("twit");
 const config = require("./config");
 const moment = require("moment");
 let Data_Schema = require("./data_schema");
-// let router = require("express").Router();
+let tw_stream = require("express");
 const mongoose = require("mongoose");
 mongoose.connect(
   "mongodb://localhost:27017/twitterstream",
@@ -15,6 +15,15 @@ mongoose.connect(
     }
   }
 );
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true })); //complex algo for parsing
+
+// "query format: localhost:3000/twitter_stream?keyword=Modi&date=2018-10-14T22:17:00.000Z"
+app.get("/twitter_stream", async (req, res) => {
+  await twitter_stream(req.query.keyword, req.query.date);
+  res.send("data saved");
+});
 
 getHashtags = element => {
   // get hashtags from entities
@@ -93,14 +102,14 @@ object_creation = async e => {
   return obj;
 };
 
-async function twitter_stream(query) {
+async function twitter_stream(keyword, st_date) {
   let T = new Twit(config);
   let stream = await T.stream("statuses/filter", {
-    track: "#" + query
+    track: "#" + keyword
   });
   count = 0;
   stream.on("tweet", async tweet => {
-    let date1 = new Date("2018-10-14T22:17:00.000Z"); // future point date , where you want to stop streaming
+    let date1 = new Date(st_date);
     let date = new Date(tweet.created_at);
     if (date1 - date === 0) {
       stream.stop();
@@ -131,5 +140,3 @@ async function twitter_stream(query) {
     }
   });
 }
-
-twitter_stream("BTS");//query - keyword
